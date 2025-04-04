@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,11 +25,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'About', href: '#about' },
-    { label: 'Case Studies', href: '#case-studies' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'About', href: '/#about' },
+    { label: 'Case Studies', href: '/#case-studies' },
+    { label: 'Courses', href: '/courses' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -46,17 +48,17 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contact" className="neuxtrek-btn-primary">
+          <Link to="/#contact" className="neuxtrek-btn-primary">
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -79,22 +81,22 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col space-y-6 py-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
                 onClick={toggleMenu}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a 
-              href="#contact" 
+            <Link 
+              to="/#contact" 
               className="neuxtrek-btn-primary w-full text-center" 
               onClick={toggleMenu}
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
       </div>
