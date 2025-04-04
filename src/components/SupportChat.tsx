@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { MessageSquare, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 const ChatMessage = ({ message, isUser = false }: { message: string; isUser?: boolean }) => {
   return (
@@ -35,6 +36,10 @@ const SupportChat = () => {
       isUser: false,
     },
   ]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Webhook URL for chat support
+  const WEBHOOK_URL = "https://yeti-amusing-bedbug.ngrok-free.app/webhook-test/36b7472d-eb2c-4344-884c-ef3a8ed14f65";
 
   // Hide tooltip after 5 seconds
   useEffect(() => {
@@ -45,25 +50,76 @@ const SupportChat = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!message.trim()) return;
     
     // Add user message
     setMessages((prev) => [...prev, { text: message, isUser: true }]);
-    setMessage("");
     
-    // Simulate response after a short delay
-    setTimeout(() => {
+    // Store message to send to webhook
+    const messageToSend = message;
+    setMessage("");
+    setIsLoading(true);
+    
+    // Send message to webhook
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: messageToSend,
+          userId: "website-visitor",
+          timestamp: new Date().toISOString()
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to send message to support");
+      }
+
+      // Get response from webhook
+      const data = await response.json();
+      
+      // Add bot response from webhook
+      if (data && data.reply) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            text: data.reply,
+            isUser: false,
+          },
+        ]);
+      } else {
+        // Fallback response if webhook doesn't return expected format
+        setMessages((prev) => [
+          ...prev,
+          {
+            text: "Thanks for your message! Our team will get back to you shortly.",
+            isUser: false,
+          },
+        ]);
+      }
+    } catch (error) {
+      console.error("Error sending message to webhook:", error);
+      
+      // Show error toast
+      toast.error("Couldn't connect to support. Please try again later.");
+      
+      // Add fallback response
       setMessages((prev) => [
         ...prev,
         {
-          text: "Thanks for reaching out! One of our AI specialists will get back to you shortly. In the meantime, feel free to check out our services section for more information.",
+          text: "Sorry, I'm having trouble connecting to our support system. Please try again later or email us directly at support@neuxtrek.com",
           isUser: false,
         },
       ]);
-    }, 1000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const toggleChat = () => {
@@ -128,13 +184,23 @@ const SupportChat = () => {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
               className="flex-1 bg-neuxtrek-silver/5 border border-neuxtrek-silver/20 rounded-l-md px-4 py-2 focus:outline-none focus:border-neuxtrek-gold text-neuxtrek-silver"
+              disabled={isLoading}
             />
             <button
               type="submit"
-              className="bg-neuxtrek-gold text-black px-4 rounded-r-md hover:bg-neuxtrek-gold/90 transition-colors"
-              disabled={!message.trim()}
+              className={cn(
+                "bg-neuxtrek-gold text-black px-4 rounded-r-md transition-colors",
+                isLoading 
+                  ? "opacity-70 cursor-not-allowed" 
+                  : "hover:bg-neuxtrek-gold/90"
+              )}
+              disabled={!message.trim() || isLoading}
             >
-              <Send size={18} />
+              {isLoading ? (
+                <div className="w-[18px] h-[18px] border-2 border-black border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <Send size={18} />
+              )}
             </button>
           </div>
         </form>
