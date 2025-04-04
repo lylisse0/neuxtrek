@@ -38,8 +38,8 @@ const SupportChat = () => {
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Updated webhook URL for chat support
-  const WEBHOOK_URL = "https://yeti-amusing-bedbug.ngrok-free.app/webhook/36b7472d-eb2c-4344-884c-ef3a8ed14f65";
+  // Webhook URL for chat support
+  const WEBHOOK_URL = "https://yeti-amusing-bedbug.ngrok-free.app/webhook-test/36b7472d-eb2c-4344-884c-ef3a8ed14f65";
 
   // Hide tooltip after 5 seconds
   useEffect(() => {
