@@ -82,23 +82,44 @@ const SupportChat = () => {
       }
 
       // Get response from webhook
-      const data = await response.json();
-      
-      // Add bot response from webhook
-      if (data && data.reply) {
+      try {
+        const data = await response.json();
+        
+        // Add bot response from webhook
+        if (data && data.output) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              text: data.output,
+              isUser: false,
+            },
+          ]);
+        } else if (data && data.reply) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              text: data.reply,
+              isUser: false,
+            },
+          ]);
+        } else {
+          // Fallback response if webhook doesn't return expected format
+          setMessages((prev) => [
+            ...prev,
+            {
+              text: "Thanks for your message! Our team will get back to you shortly.",
+              isUser: false,
+            },
+          ]);
+        }
+      } catch (jsonError) {
+        console.error("Error parsing JSON response:", jsonError);
+        
+        // Fallback response for JSON parse errors
         setMessages((prev) => [
           ...prev,
           {
-            text: data.reply,
-            isUser: false,
-          },
-        ]);
-      } else {
-        // Fallback response if webhook doesn't return expected format
-        setMessages((prev) => [
-          ...prev,
-          {
-            text: "Thanks for your message! Our team will get back to you shortly.",
+            text: "Thank you for your message. Our team has received it and will respond shortly.",
             isUser: false,
           },
         ]);
