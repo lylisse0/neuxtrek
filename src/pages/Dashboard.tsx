@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Navbar from '@/components/Navbar';
 import SupportChat from '@/components/SupportChat';
 import { useNavigate } from 'react-router-dom';
-import { Cpu, Code, Database, LineChart, FileCode, Building, RefreshCcw, Check } from 'lucide-react';
+import { Cpu, Code, Database, LineChart, FileCode, Building, RefreshCcw, Check, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
@@ -94,13 +93,11 @@ const Dashboard = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    // In a real app, fetch this from your backend or auth provider
     const profile = localStorage.getItem('user_profile');
     if (profile) {
       const { username: storedUsername } = JSON.parse(profile);
       setUsername(storedUsername || 'User');
     } else {
-      // If no profile is found, redirect to login
       navigate('/login');
     }
   }, [navigate]);
@@ -113,6 +110,10 @@ const Dashboard = () => {
 
   const handleEnterpriseClick = () => {
     navigate('/enterprise');
+  };
+
+  const handleNewProjectClick = () => {
+    window.open('/new-project', '_blank');
   };
 
   return (
@@ -143,22 +144,34 @@ const Dashboard = () => {
             </TabsList>
           </Tabs>
           
-          <Button 
-            variant="ghost" 
-            size="sm"
-            className="text-neuxtrek-silver hover:text-neuxtrek-gold hover:bg-transparent"
-            onClick={handleLogout}
-          >
-            <RefreshCcw size={16} className="mr-2" />
-            Logout
-          </Button>
+          <div className="flex items-center space-x-2">
+            <Button 
+              variant="ghost" 
+              size="sm"
+              className="text-neuxtrek-silver hover:text-neuxtrek-gold hover:bg-transparent"
+              onClick={handleLogout}
+            >
+              <RefreshCcw size={16} className="mr-2" />
+              Logout
+            </Button>
+          </div>
         </div>
       </header>
       
       <main className="container mx-auto px-4 pt-24 pb-16">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Welcome, <span className="text-neuxtrek-gold">{username}</span></h1>
-          <p className="text-neuxtrek-silver/70">Explore our AI automation platform and start building your solutions today.</p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Welcome, <span className="text-neuxtrek-gold">{username}</span></h1>
+            <p className="text-neuxtrek-silver/70">Explore our AI automation platform and start building your solutions today.</p>
+          </div>
+          
+          <Button 
+            className="bg-neuxtrek-gold text-black hover:bg-neuxtrek-gold/90"
+            onClick={handleNewProjectClick}
+          >
+            <PlusCircle size={18} className="mr-2" />
+            New Project
+          </Button>
         </div>
         
         <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -183,7 +196,11 @@ const Dashboard = () => {
               <div className="bg-black/30 border border-neuxtrek-silver/10 rounded-lg p-6">
                 <p className="text-neuxtrek-silver/70 text-center py-8">No recent projects. Start by creating a new AI solution.</p>
                 <div className="flex justify-center">
-                  <Button className="bg-neuxtrek-gold text-black hover:bg-neuxtrek-gold/90">
+                  <Button 
+                    className="bg-neuxtrek-gold text-black hover:bg-neuxtrek-gold/90"
+                    onClick={handleNewProjectClick}
+                  >
+                    <PlusCircle size={18} className="mr-2" />
                     Create New Project
                   </Button>
                 </div>
