@@ -4,7 +4,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Navbar from '@/components/Navbar';
 import SupportChat from '@/components/SupportChat';
 import { useNavigate } from 'react-router-dom';
-import { Cpu, Code, Database, LineChart, FileCode, Building, RefreshCcw, Check, Plus } from 'lucide-react';
+import { Cpu, Code, Database, LineChart, FileCode, Building, RefreshCcw, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
@@ -115,11 +115,6 @@ const Dashboard = () => {
     navigate('/enterprise');
   };
 
-  const handleNewProject = () => {
-    // Open lovable.dev in a new tab
-    window.open('https://lovable.dev/new', '_blank');
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-[#111] text-neuxtrek-silver">
       <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-neuxtrek-silver/10 z-50">
@@ -148,33 +143,22 @@ const Dashboard = () => {
             </TabsList>
           </Tabs>
           
-          <div className="flex items-center space-x-2">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              className="text-neuxtrek-silver hover:text-neuxtrek-gold hover:bg-transparent"
-              onClick={handleLogout}
-            >
-              <RefreshCcw size={16} className="mr-2" />
-              Logout
-            </Button>
-          </div>
+          <Button 
+            variant="ghost" 
+            size="sm"
+            className="text-neuxtrek-silver hover:text-neuxtrek-gold hover:bg-transparent"
+            onClick={handleLogout}
+          >
+            <RefreshCcw size={16} className="mr-2" />
+            Logout
+          </Button>
         </div>
       </header>
       
       <main className="container mx-auto px-4 pt-24 pb-16">
-        <div className="mb-8 flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold mb-2">Welcome, <span className="text-neuxtrek-gold">{username}</span></h1>
-            <p className="text-neuxtrek-silver/70">Explore our AI automation platform and start building your solutions today.</p>
-          </div>
-          <Button 
-            onClick={handleNewProject}
-            className="bg-neuxtrek-gold text-black hover:bg-neuxtrek-gold/90 flex items-center"
-          >
-            <Plus size={18} className="mr-2" />
-            New Project
-          </Button>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold mb-2">Welcome, <span className="text-neuxtrek-gold">{username}</span></h1>
+          <p className="text-neuxtrek-silver/70">Explore our AI automation platform and start building your solutions today.</p>
         </div>
         
         <Tabs value={activeTab} onValueChange={setActiveTab}>
