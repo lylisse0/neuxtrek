@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ import {
   Book, 
   Users, 
   Signal, 
-  Bullhorn, 
+  Megaphone,
   Lightbulb, 
   Play, 
   Info, 
@@ -21,7 +20,7 @@ import {
   Rocket,
   FileCode,
   Pencil,
-  Flask,
+  TestTube,
   Briefcase,
   Globe,
   Folder,
@@ -120,7 +119,7 @@ const NewProject = () => {
     },
     {
       label: "Product Announcement",
-      icon: <Bullhorn size={16} />,
+      icon: <Megaphone size={16} />,
       submenu: []
     },
     {
@@ -161,7 +160,7 @@ const NewProject = () => {
         { label: "Visual Edit", icon: <Pencil size={14} /> },
         { label: "Knowledge Files", icon: <File size={14} /> },
         { label: "Dev Mode", icon: <FileCode size={14} /> },
-        { label: "Labs", icon: <Flask size={14} /> },
+        { label: "Labs", icon: <TestTube size={14} /> },
         { label: "Troubleshooting", icon: <Briefcase size={14} /> },
         { label: "Deploy", icon: <Rocket size={14} /> },
         { label: "Custom Domain", icon: <Globe size={14} /> },
