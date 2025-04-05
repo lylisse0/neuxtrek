@@ -77,68 +77,70 @@ const NewProject = () => {
                 <TabsTrigger value="chat" className="data-[state=active]:text-neuxtrek-gold">Chat</TabsTrigger>
                 <TabsTrigger value="files" className="data-[state=active]:text-neuxtrek-gold">Files</TabsTrigger>
               </TabsList>
+            
+              <TabsContent value="chat" className="h-full flex flex-col mt-4">
+                <div className="flex-grow overflow-auto space-y-4">
+                  {messages.map((msg, index) => (
+                    <div 
+                      key={index} 
+                      className={`p-3 rounded-lg ${
+                        msg.type === 'user' 
+                          ? 'bg-neuxtrek-silver/10 ml-8' 
+                          : 'bg-neuxtrek-gold/5 mr-8'
+                      }`}
+                    >
+                      <p className="text-sm">{msg.content}</p>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-4 flex">
+                  <Textarea 
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Type your message here..."
+                    className="flex-grow bg-black/40 border-neuxtrek-silver/30 resize-none"
+                  />
+                  <Button 
+                    onClick={handleSendMessage} 
+                    className="ml-2 bg-neuxtrek-gold text-black hover:bg-neuxtrek-gold/90"
+                  >
+                    <Send size={16} />
+                  </Button>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="files" className="h-full mt-4">
+                <div className="p-4 bg-black/30 rounded-lg border border-neuxtrek-silver/10 h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold">Project Files</h3>
+                    <Button variant="ghost" size="sm" className="text-neuxtrek-gold">
+                      <Plus size={16} className="mr-1" /> New File
+                    </Button>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="flex items-center p-2 hover:bg-neuxtrek-silver/5 rounded-md cursor-pointer">
+                      <FileCode size={16} className="mr-2 text-neuxtrek-gold" />
+                      <span>index.tsx</span>
+                    </div>
+                    <div className="flex items-center p-2 hover:bg-neuxtrek-silver/5 rounded-md cursor-pointer">
+                      <FileCode size={16} className="mr-2 text-neuxtrek-gold" />
+                      <span>App.css</span>
+                    </div>
+                    <div className="flex items-center p-2 hover:bg-neuxtrek-silver/5 rounded-md cursor-pointer">
+                      <FileCode size={16} className="mr-2 text-neuxtrek-gold" />
+                      <span>components/Header.tsx</span>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
             </Tabs>
           </div>
 
           <div className="flex-grow overflow-auto p-4">
-            <TabsContent value="chat" className="h-full flex flex-col">
-              <div className="flex-grow overflow-auto space-y-4">
-                {messages.map((msg, index) => (
-                  <div 
-                    key={index} 
-                    className={`p-3 rounded-lg ${
-                      msg.type === 'user' 
-                        ? 'bg-neuxtrek-silver/10 ml-8' 
-                        : 'bg-neuxtrek-gold/5 mr-8'
-                    }`}
-                  >
-                    <p className="text-sm">{msg.content}</p>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-4 flex">
-                <Textarea 
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Type your message here..."
-                  className="flex-grow bg-black/40 border-neuxtrek-silver/30 resize-none"
-                />
-                <Button 
-                  onClick={handleSendMessage} 
-                  className="ml-2 bg-neuxtrek-gold text-black hover:bg-neuxtrek-gold/90"
-                >
-                  <Send size={16} />
-                </Button>
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="files" className="h-full">
-              <div className="p-4 bg-black/30 rounded-lg border border-neuxtrek-silver/10 h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold">Project Files</h3>
-                  <Button variant="ghost" size="sm" className="text-neuxtrek-gold">
-                    <Plus size={16} className="mr-1" /> New File
-                  </Button>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center p-2 hover:bg-neuxtrek-silver/5 rounded-md cursor-pointer">
-                    <FileCode size={16} className="mr-2 text-neuxtrek-gold" />
-                    <span>index.tsx</span>
-                  </div>
-                  <div className="flex items-center p-2 hover:bg-neuxtrek-silver/5 rounded-md cursor-pointer">
-                    <FileCode size={16} className="mr-2 text-neuxtrek-gold" />
-                    <span>App.css</span>
-                  </div>
-                  <div className="flex items-center p-2 hover:bg-neuxtrek-silver/5 rounded-md cursor-pointer">
-                    <FileCode size={16} className="mr-2 text-neuxtrek-gold" />
-                    <span>components/Header.tsx</span>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
+            {/* This div is now empty as content is moved inside the Tabs component */}
           </div>
         </div>
         
