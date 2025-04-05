@@ -4,7 +4,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Navbar from '@/components/Navbar';
 import SupportChat from '@/components/SupportChat';
 import { useNavigate } from 'react-router-dom';
-import { Cpu, Code, Database, LineChart, FileCode, Building, RefreshCcw } from 'lucide-react';
+import { Cpu, Code, Database, LineChart, FileCode, Building, RefreshCcw, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 

@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Google, Apple, ArrowLeft } from 'lucide-react';
+import { Apple, ArrowLeft, Mail, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/Logo';
 import { toast } from 'sonner';
@@ -155,7 +154,7 @@ const Login = () => {
               onClick={handleGoogleSignIn}
               disabled={isLoading}
             >
-              <Google className="mr-2" size={18} />
+              <Globe className="mr-2" size={18} />
               {isSignUp ? 'Sign up with Google' : 'Sign in with Google'}
             </Button>
             
