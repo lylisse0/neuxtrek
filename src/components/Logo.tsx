@@ -20,48 +20,30 @@ const Logo = ({ className, containerClassName, isScrolled = false }: LogoProps) 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Calculate rotation based on scroll (subtle effect)
-  const rotateAmount = Math.min(scrollOffset * 0.05, 10);
-
   return (
     <div className={cn("relative flex items-center", containerClassName)}>
-      {/* X Logo */}
+      {/* Heart Logo */}
       <div 
         className={cn(
           "relative transition-transform duration-300",
           isScrolled ? "scale-90" : "scale-100",
           className
         )}
-        style={{
-          transform: `rotate(${rotateAmount}deg)`,
-        }}
       >
-        {/* Main X Shape */}
-        <div className="relative w-12 h-12">
-          {/* Line 1 */}
-          <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-neuxtrek-silver to-white transform rotate-45 origin-left rounded-full"></div>
-          
-          {/* Line 2 */}
-          <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-neuxtrek-silver to-white transform -rotate-45 origin-left rounded-full"></div>
-          
-          {/* Line 3 */}
-          <div className="absolute top-0 right-0 w-full h-1.5 bg-gradient-to-l from-neuxtrek-silver to-white transform -rotate-45 origin-right rounded-full"></div>
-          
-          {/* Line 4 */}
-          <div className="absolute bottom-0 right-0 w-full h-1.5 bg-gradient-to-l from-neuxtrek-silver to-white transform rotate-45 origin-right rounded-full"></div>
-          
-          {/* Neural dots */}
-          <div className="absolute top-0 left-1/2 w-2 h-2 rounded-full bg-neuxtrek-gold animate-pulse-glow transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-1/2 w-2 h-2 rounded-full bg-neuxtrek-gold animate-pulse-glow transform -translate-x-1/2 translate-y-1/2 animation-delay-300"></div>
-          <div className="absolute left-0 top-1/2 w-2 h-2 rounded-full bg-neuxtrek-gold animate-pulse-glow transform -translate-x-1/2 -translate-y-1/2 animation-delay-600"></div>
-          <div className="absolute right-0 top-1/2 w-2 h-2 rounded-full bg-neuxtrek-gold animate-pulse-glow transform translate-x-1/2 -translate-y-1/2 animation-delay-900"></div>
+        <div className="relative w-8 h-8">
+          <svg viewBox="0 0 24 24" className="w-full h-full text-neuxtrek-gold">
+            <path 
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+              fill="currentColor"
+            />
+          </svg>
         </div>
       </div>
       
       {/* Logo Text */}
       <div className={cn("ml-2 transition-transform duration-300", isScrolled ? "scale-90" : "scale-100")}>
-        <h1 className="text-2xl font-bold tracking-tight">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-neuxtrek-silver to-white">NEUXTREK</span>
+        <h1 className="text-xl font-bold tracking-tight">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-neuxtrek-silver to-white">NeuXTrek</span>
         </h1>
         <p className="text-xs text-neuxtrek-gold font-light tracking-wide">AI Automation Agency</p>
       </div>
