@@ -24,13 +24,24 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100, // Offset for navbar height
+        behavior: 'smooth'
+      });
+      if (isOpen) setIsOpen(false);
+    }
+  };
+
   const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Services', href: '/#services' },
-    { label: 'About', href: '/#about' },
-    { label: 'Case Studies', href: '/#case-studies' },
+    { label: 'Home', href: 'home' },
+    { label: 'Services', href: 'services' },
+    { label: 'About', href: 'about' },
+    { label: 'Case Studies', href: 'case-studies' },
     { label: 'Courses', href: '/courses' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Contact', href: 'contact' },
   ];
 
   return (
@@ -48,15 +59,25 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
-            >
-              {link.label}
-            </Link>
+            link.href.startsWith('/') ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.label}
+                onClick={() => scrollToSection(link.href)}
+                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+              >
+                {link.label}
+              </button>
+            )
           ))}
-          <Link to="/#contact" className="neuxtrek-btn-primary">
+          <Link to="/login" className="neuxtrek-btn-primary">
             Get Started
           </Link>
         </div>
@@ -81,17 +102,27 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col space-y-6 py-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
-                onClick={toggleMenu}
-              >
-                {link.label}
-              </Link>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+                  onClick={toggleMenu}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.label}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-left text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+                >
+                  {link.label}
+                </button>
+              )
             ))}
             <Link 
-              to="/#contact" 
+              to="/login" 
               className="neuxtrek-btn-primary w-full text-center" 
               onClick={toggleMenu}
             >

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { MessageSquare, X, Send } from "lucide-react";
+import { MessageSquare, X, Send, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -37,9 +37,10 @@ const SupportChat = () => {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isCallHovered, setIsCallHovered] = useState(false);
 
-  // Webhook URL for chat support
-  const WEBHOOK_URL = "https://yeti-amusing-bedbug.ngrok-free.app/webhook-test/36b7472d-eb2c-4344-884c-ef3a8ed14f65";
+  // Updated webhook URL
+  const WEBHOOK_URL = "https://yeti-amusing-bedbug.ngrok-free.app/webhook/36b7472d-eb2c-4344-884c-ef3a8ed14f65";
 
   // Hide tooltip after 5 seconds
   useEffect(() => {
@@ -148,6 +149,10 @@ const SupportChat = () => {
     setShowTooltip(false);
   };
 
+  const handleCallClick = () => {
+    toast.success("Requesting a call. Our team will contact you shortly.");
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-40">
       {/* Chat Button */}
@@ -158,6 +163,20 @@ const SupportChat = () => {
           aria-label="Customer Support Chat"
         >
           {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        </button>
+        
+        {/* Call Button */}
+        <button
+          onClick={handleCallClick}
+          onMouseEnter={() => setIsCallHovered(true)}
+          onMouseLeave={() => setIsCallHovered(false)}
+          className={cn(
+            "absolute -left-20 bottom-0 w-14 h-14 rounded-full bg-green-600 text-white flex items-center justify-center shadow-lg hover:bg-green-500 transition-all duration-300",
+            isCallHovered ? "animate-pulse" : "animate-[shake_1s_ease-in-out_infinite]"
+          )}
+          aria-label="Request Call"
+        >
+          <Phone size={20} className={isCallHovered ? "animate-[rotate_0.5s_ease]" : ""} />
         </button>
         
         {/* Tooltip */}
