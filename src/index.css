@@ -133,4 +133,13 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  /* Menu hover animations */
+  .sidebar-menu-item {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  .sidebar-menu-item:hover {
+    @apply bg-[#3C3C3C] text-[#E6C12E];
+  }
 }
