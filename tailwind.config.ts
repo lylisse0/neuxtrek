@@ -63,19 +63,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// NeuXTrek custom colors
-				neuxtrek: {
-					black: '#000000',
-					silver: '#9F9EA1',
-					gold: '#D4AF37',
-				},
-			},
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'circuit-pattern': "url('/circuit-pattern.png')",
-			},
-			fontFamily: {
-				sans: ['Montserrat', 'sans-serif'],
+        neuxTrek: {
+          yellow: '#FFC107',
+          black: '#000000',
+          white: '#FFFFFF',
+          darkGray: '#333333',
+          midGray: '#555555',
+          lightGray: '#CCCCCC',
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,38 +79,25 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: { height: '0' },
-					to: { height: 'var(--radix-accordion-content-height)' }
-				},
-				'accordion-up': {
-					from: { height: 'var(--radix-accordion-content-height)' },
-					to: { height: '0' }
-				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-10px)' }
-				},
-				'pulse-glow': {
-					'0%, 100%': { 
-						boxShadow: '0 0 5px rgba(212, 175, 55, 0.5)',
-						opacity: 1
+					from: {
+						height: '0'
 					},
-					'50%': { 
-						boxShadow: '0 0 15px rgba(212, 175, 55, 0.8)',
-						opacity: 0.9
+					to: {
+						height: 'var(--radix-accordion-content-height)'
 					}
 				},
-				'rotate': {
-					from: { transform: 'rotate(0deg)' },
-					to: { transform: 'rotate(360deg)' }
+				'accordion-up': {
+					from: {
+						height: 'var(--radix-accordion-content-height)'
+					},
+					to: {
+						height: '0'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'float': 'float 6s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-				'rotate': 'rotate 20s linear infinite'
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
