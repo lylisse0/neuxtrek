@@ -3,6 +3,8 @@ import React from 'react';
 import { Search, Bell, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Input } from "@/components/ui/input";
+import Logo from "@/components/Logo";
+import { Link } from 'react-router-dom';
 
 interface NavigationItem {
   name: string;
@@ -24,9 +26,9 @@ const CommunityHeader = () => {
     <div className="w-full border-b border-neuxtrek-silver/10 pb-2">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          <h1 className="text-2xl font-bold text-neuxtrek-silver">
-            AI Automation Society
-          </h1>
+          <Link to="/" className="flex items-center">
+            <Logo isScrolled={false} />
+          </Link>
           
           <div className="hidden md:flex items-center gap-4">
             <div className="relative">
@@ -64,13 +66,13 @@ const CommunityHeader = () => {
           </div>
         </div>
         
-        <nav className="flex items-center space-x-6 mt-2">
+        <nav className="flex items-center space-x-6 mt-2 overflow-x-auto pb-2 scrollbar-none">
           {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
               className={cn(
-                "px-1 py-2 text-sm font-medium transition-colors",
+                "px-1 py-2 text-sm font-medium transition-colors whitespace-nowrap",
                 item.active 
                   ? "text-neuxtrek-gold border-b-2 border-neuxtrek-gold" 
                   : "text-neuxtrek-silver hover:text-neuxtrek-gold"
