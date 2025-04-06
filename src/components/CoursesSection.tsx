@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, BookOpen, Book } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const courses = [
   {
@@ -113,6 +113,17 @@ const CourseCard = ({ course }) => {
 };
 
 const SubscriptionCard = ({ isActive, setIsActive }) => {
+  const navigate = useNavigate();
+  
+  const handleSubscribe = () => {
+    if (!isActive) {
+      setIsActive(true);
+      navigate('/community');
+    } else {
+      console.log("Manage existing subscription");
+    }
+  };
+
   return (
     <Card className={`bg-gradient-to-b ${isActive ? 'from-neuxtrek-gold/20 to-black/50 border-neuxtrek-gold' : 'from-neuxtrek-silver/10 to-transparent border-neuxtrek-silver/20'} transition-all duration-300 cursor-pointer`} onClick={() => setIsActive(true)}>
       <CardHeader>
@@ -170,7 +181,10 @@ const SubscriptionCard = ({ isActive, setIsActive }) => {
         </ul>
       </CardContent>
       <CardFooter>
-        <Button className="w-full neuxtrek-btn-primary bg-gradient-to-r from-neuxtrek-gold/80 to-neuxtrek-gold text-black">
+        <Button 
+          className="w-full neuxtrek-btn-primary bg-gradient-to-r from-neuxtrek-gold/80 to-neuxtrek-gold text-black"
+          onClick={handleSubscribe}
+        >
           {isActive ? 'Manage Subscription' : 'Subscribe Now'}
         </Button>
       </CardFooter>
