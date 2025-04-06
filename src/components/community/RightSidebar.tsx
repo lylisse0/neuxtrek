@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Rocket, Scroll, Fire } from 'lucide-react';
+import { Rocket, Scroll, Flame } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -120,7 +120,7 @@ const RightSidebar = () => {
       <Card className="bg-[#333333] border-neuxtrek-silver/20">
         <CardHeader>
           <CardTitle className="text-lg text-neuxtrek-silver flex items-center gap-2">
-            <Fire size={20} className="text-neuxtrek-gold" /> 
+            <Flame size={20} className="text-neuxtrek-gold" /> 
             Leaderboards
           </CardTitle>
         </CardHeader>
