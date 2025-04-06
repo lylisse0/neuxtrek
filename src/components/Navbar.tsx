@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -25,23 +26,34 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    // Close the mobile menu if it's open
+    if (isOpen) setIsOpen(false);
+
+    // If we're not on the homepage, navigate to home first
+    if (location.pathname !== '/') {
+      // We need to navigate to homepage and then scroll
+      // This can be handled with state, but for now, we'll use a simpler approach
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+
+    // If we're on the homepage, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 100, // Offset for navbar height
         behavior: 'smooth'
       });
-      if (isOpen) setIsOpen(false);
     }
   };
 
   const navLinks = [
-    { label: 'Home', href: 'home' },
-    { label: 'Services', href: 'services' },
-    { label: 'About', href: 'about' },
-    { label: 'Case Studies', href: 'case-studies' },
-    { label: 'Courses', href: '/courses' },
-    { label: 'Contact', href: 'contact' },
+    { label: 'Home', href: 'home', isPage: false },
+    { label: 'Services', href: 'services', isPage: false },
+    { label: 'About', href: 'about', isPage: false },
+    { label: 'Case Studies', href: 'case-studies', isPage: false },
+    { label: 'Courses', href: '/courses', isPage: true },
+    { label: 'Contact', href: 'contact', isPage: false },
   ];
 
   return (
@@ -54,12 +66,14 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <Logo isScrolled={isScrolled} />
+        <Link to="/" className="flex items-center">
+          <Logo isScrolled={isScrolled} />
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            link.href.startsWith('/') ? (
+            link.isPage ? (
               <Link
                 key={link.label}
                 to={link.href}
@@ -102,12 +116,12 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col space-y-6 py-8">
             {navLinks.map((link) => (
-              link.href.startsWith('/') ? (
+              link.isPage ? (
                 <Link
                   key={link.label}
                   to={link.href}
                   className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
-                  onClick={toggleMenu}
+                  onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
@@ -124,7 +138,7 @@ const Navbar = () => {
             <Link 
               to="/login" 
               className="neuxtrek-btn-primary w-full text-center" 
-              onClick={toggleMenu}
+              onClick={() => setIsOpen(false)}
             >
               Get Started
             </Link>
