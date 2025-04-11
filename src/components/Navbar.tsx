@@ -84,13 +84,17 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ) : (
-              <button
+              <Link
                 key={link.label}
-                onClick={() => scrollToSection(link.href)}
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href);
+                }}
                 className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
               >
                 {link.label}
-              </button>
+              </Link>
             )
           ))}
           <LanguageSelector />
@@ -129,13 +133,18 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ) : (
-                <button
+                <Link
                   key={link.label}
-                  onClick={() => scrollToSection(link.href)}
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                    setIsOpen(false);
+                  }}
                   className="text-left text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
                 >
                   {link.label}
-                </button>
+                </Link>
               )
             ))}
             <LanguageSelector />

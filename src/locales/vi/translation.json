@@ -184,10 +184,80 @@
     "levels": {
       "beginner": "Người mới bắt đầu",
       "intermediate": "Trung cấp",
-      "advanced": "Nâng cao"
+      "advanced": "Nâng cao",
+      "allLevels": "Tất cả các cấp độ"
     },
     "duration": "Thời lượng",
     "enrolled": "Đã đăng ký",
-    "startLearning": "Bắt đầu học"
+    "startLearning": "Bắt đầu học",
+    "modules": "học phần",
+    "level": "Cấp độ",
+    "viewCourse": "Xem khóa học",
+    "masterTitle": {
+      "part1": "Làm chủ",
+      "part2": "Tự động hóa AI",
+      "part3": "với Các khóa học do Chuyên gia hướng dẫn"
+    },
+    "subtitle": "Chương trình đào tạo toàn diện được thiết kế để giúp bạn khai thác sức mạnh của AI trong quy trình làm việc",
+    "tabs": {
+      "all": "Tất cả khóa học",
+      "beginner": "Người mới bắt đầu",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao"
+    },
+    "premiumAccess": "Truy cập cao cấp",
+    "active": "Đang hoạt động",
+    "month": "tháng",
+    "subscriptionPlan": "Gói đăng ký",
+    "needHelp": "Cần trợ giúp?",
+    "helpText": "Đội ngũ của chúng tôi sẵn sàng hỗ trợ bạn với bất kỳ câu hỏi nào về khóa học hoặc đăng ký của chúng tôi.",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "manageSubscription": "Quản lý đăng ký",
+    "subscribeNow": "Đăng ký ngay",
+    "benefits": {
+      "allCourses": "Truy cập tất cả các khóa học",
+      "community": "Truy cập cộng đồng cao cấp",
+      "qa": "Phiên hỏi đáp hàng tháng",
+      "certificates": "Chứng chỉ khóa học",
+      "templates": "Mẫu dự án AI"
+    },
+    "tags": {
+      "mostPopular": "Phổ biến nhất",
+      "new": "Mới",
+      "advanced": "Nâng cao",
+      "hot": "Nổi bật"
+    },
+    "coursesList": {
+      "promptEngineering": {
+        "title": "Lớp thạc sĩ kỹ thuật nhắc nhở AI",
+        "description": "Học nghệ thuật tạo ra các lời nhắc hiệu quả cho các mô hình AI như ChatGPT, Claude và Gemini.",
+        "duration": "6 giờ"
+      },
+      "automation": {
+        "title": "Quy trình tự động hóa AI",
+        "description": "Xây dựng quy trình tự động hóa từ đầu đến cuối sử dụng AI để hợp lý hóa quy trình kinh doanh.",
+        "duration": "10 giờ"
+      },
+      "integration": {
+        "title": "Tích hợp AI nâng cao",
+        "description": "Kết nối các mô hình AI với các ứng dụng hiện có và tạo ra các giải pháp tùy chỉnh được hỗ trợ bởi AI.",
+        "duration": "14 giờ"
+      },
+      "business": {
+        "title": "AI cho lãnh đạo doanh nghiệp",
+        "description": "Triển khai chiến lược các công nghệ AI để thúc đẩy tăng trưởng và đổi mới kinh doanh.",
+        "duration": "5 giờ"
+      },
+      "agents": {
+        "title": "Xây dựng các đại lý AI",
+        "description": "Tạo ra các đại lý AI tự chủ có thể thực hiện các nhiệm vụ phức tạp và đưa ra quyết định.",
+        "duration": "12 giờ"
+      },
+      "ethics": {
+        "title": "Đạo đức AI & Triển khai có trách nhiệm",
+        "description": "Xem xét các vấn đề đạo đức và phương pháp tốt nhất khi triển khai hệ thống AI.",
+        "duration": "6 giờ"
+      }
+    }
   }
 }

@@ -27,3 +27,19 @@ export interface SetupProfileOptions {
   useCase: string[];
   experience: string[];
 }
+
+// Define additional translation types for specific sections
+export interface CourseTranslation {
+  title: string;
+  description: string;
+  duration: string;
+}
+
+export interface CoursesTranslations {
+  promptEngineering: CourseTranslation;
+  automation: CourseTranslation;
+  integration: CourseTranslation;
+  business: CourseTranslation;
+  agents: CourseTranslation;
+  ethics: CourseTranslation;
+}

@@ -184,10 +184,80 @@
     "levels": {
       "beginner": "Beginner",
       "intermediate": "Intermediate",
-      "advanced": "Advanced"
+      "advanced": "Advanced",
+      "allLevels": "All Levels"
     },
     "duration": "Duration",
     "enrolled": "Enrolled",
-    "startLearning": "Start Learning"
+    "startLearning": "Start Learning",
+    "modules": "modules",
+    "level": "Level",
+    "viewCourse": "View Course",
+    "masterTitle": {
+      "part1": "Master",
+      "part2": "AI Automation",
+      "part3": "with Our Expert-Led Courses"
+    },
+    "subtitle": "Comprehensive training programs designed to help you harness the power of AI in your workflows",
+    "tabs": {
+      "all": "All Courses",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "premiumAccess": "Premium Access",
+    "active": "Active",
+    "month": "month",
+    "subscriptionPlan": "Subscription Plan",
+    "needHelp": "Need Help?",
+    "helpText": "Our team is ready to assist you with any questions about our courses or subscription.",
+    "contactSupport": "Contact Support",
+    "manageSubscription": "Manage Subscription",
+    "subscribeNow": "Subscribe Now",
+    "benefits": {
+      "allCourses": "Access to all courses",
+      "community": "Premium community access",
+      "qa": "Monthly Q&A sessions",
+      "certificates": "Course certificates",
+      "templates": "AI project templates"
+    },
+    "tags": {
+      "mostPopular": "Most Popular",
+      "new": "New",
+      "advanced": "Advanced",
+      "hot": "Hot"
+    },
+    "coursesList": {
+      "promptEngineering": {
+        "title": "AI Prompt Engineering Masterclass",
+        "description": "Learn the art of crafting effective prompts for AI models like ChatGPT, Claude, and Gemini.",
+        "duration": "6 hours"
+      },
+      "automation": {
+        "title": "AI Automation Workflows",
+        "description": "Build end-to-end automation workflows using AI to streamline business processes.",
+        "duration": "10 hours"
+      },
+      "integration": {
+        "title": "Advanced AI Integration",
+        "description": "Connect AI models to existing applications and create custom AI-powered solutions.",
+        "duration": "14 hours"
+      },
+      "business": {
+        "title": "AI for Business Leaders",
+        "description": "Strategic implementation of AI technologies to drive business growth and innovation.",
+        "duration": "5 hours"
+      },
+      "agents": {
+        "title": "Building AI Agents",
+        "description": "Create autonomous AI agents that can perform complex tasks and make decisions.",
+        "duration": "12 hours"
+      },
+      "ethics": {
+        "title": "AI Ethics & Responsible Implementation",
+        "description": "Navigate ethical considerations and best practices when deploying AI systems.",
+        "duration": "6 hours"
+      }
+    }
   }
 }
