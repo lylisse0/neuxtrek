@@ -42,4 +42,14 @@ export interface CoursesTranslations {
   business: CourseTranslation;
   agents: CourseTranslation;
   ethics: CourseTranslation;
+  course: string;
+}
+
+export interface CommunityTranslations {
+  title: string;
+  newComment: string;
+  ago: string;
+  posts: string;
+  trending: string;
+  discussions: string;
 }

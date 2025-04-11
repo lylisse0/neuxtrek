@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import SetupProfile from "./pages/SetupProfile";
 import NewProject from "./pages/NewProject";
 import Community from "./pages/Community";
+import Classroom from "./pages/Classroom";
 
 // Loading component for suspense
 const Loading = () => {
@@ -54,6 +55,7 @@ const App = () => {
               <Route path="/setup-profile" element={<SetupProfile />} />
               <Route path="/new-project" element={<NewProject />} />
               <Route path="/community" element={<Community />} />
+              <Route path="/classroom" element={<Classroom />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
