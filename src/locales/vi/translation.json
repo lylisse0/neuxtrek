@@ -1,0 +1,36 @@
+
+{
+  "navbar": {
+    "home": "Trang chủ",
+    "services": "Dịch vụ",
+    "about": "Giới thiệu",
+    "caseStudies": "Dự án thực tế",
+    "courses": "Khóa học",
+    "contact": "Liên hệ",
+    "getStarted": "Bắt đầu"
+  },
+  "supportChat": {
+    "welcome": "Xin chào! Tôi có thể giúp gì cho bạn về tự động hóa AI?",
+    "placeholder": "Nhập tin nhắn của bạn...",
+    "sending": "Đang xử lý...",
+    "errorMessage": "Xin lỗi, tôi đang gặp sự cố kết nối với hệ thống hỗ trợ. Vui lòng thử lại sau hoặc gửi email trực tiếp đến support@neuxtrek.com",
+    "tooltip": "Trò chuyện với tôi để được hỗ trợ"
+  },
+  "latency": {
+    "excellent": "Tuyệt vời",
+    "good": "Tốt",
+    "fair": "Trung bình",
+    "poor": "Kém"
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "submit": "Gửi đi",
+    "cancel": "Hủy bỏ",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "view": "Xem",
+    "search": "Tìm kiếm hoặc đặt câu hỏi..."
+  }
+}

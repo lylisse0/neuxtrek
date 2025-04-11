@@ -1,0 +1,36 @@
+
+{
+  "navbar": {
+    "home": "首页",
+    "services": "服务",
+    "about": "关于我们",
+    "caseStudies": "案例研究",
+    "courses": "课程",
+    "contact": "联系我们",
+    "getStarted": "开始使用"
+  },
+  "supportChat": {
+    "welcome": "您好！有关AI自动化，我今天能帮您什么忙？",
+    "placeholder": "输入您的消息...",
+    "sending": "处理中...",
+    "errorMessage": "抱歉，我无法连接到我们的支持系统。请稍后再试或直接发送电子邮件至support@neuxtrek.com",
+    "tooltip": "与我聊天获取支持"
+  },
+  "latency": {
+    "excellent": "极好",
+    "good": "良好",
+    "fair": "一般",
+    "poor": "较差"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "search": "搜索或提问..."
+  }
+}

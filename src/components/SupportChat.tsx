@@ -1,8 +1,96 @@
 
 import { useState, useEffect } from "react";
-import { MessageSquare, X, Send, Phone } from "lucide-react";
+import { MessageSquare, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
+
+// Latency tracker implementation
+const useLatencyTracker = () => {
+  const [clickTimestamps, setClickTimestamps] = useState<Record<string, number>>({});
+  const [latencyMetrics, setLatencyMetrics] = useState<{
+    average: number;
+    min: number;
+    max: number;
+    lastMeasurement: number;
+  }>({
+    average: 0,
+    min: 0,
+    max: 0,
+    lastMeasurement: 0
+  });
+
+  // Start tracking a user interaction
+  const startTracking = (actionId: string) => {
+    setClickTimestamps(prev => ({
+      ...prev,
+      [actionId]: performance.now()
+    }));
+  };
+
+  // End tracking and calculate latency
+  const endTracking = (actionId: string) => {
+    const now = performance.now();
+    const startTime = clickTimestamps[actionId];
+    
+    if (!startTime) return;
+    
+    const latency = now - startTime;
+    
+    // Update metrics
+    setLatencyMetrics(prev => {
+      const newAvg = prev.average === 0 
+        ? latency 
+        : (prev.average + latency) / 2;
+      
+      return {
+        average: newAvg,
+        min: prev.min === 0 ? latency : Math.min(prev.min, latency),
+        max: Math.max(prev.max, latency),
+        lastMeasurement: latency
+      };
+    });
+    
+    // Remove the timestamp
+    setClickTimestamps(prev => {
+      const newState = { ...prev };
+      delete newState[actionId];
+      return newState;
+    });
+  };
+
+  // Track page navigation/tab switches
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const actionId = `visibility-${Date.now()}`;
+      if (document.visibilityState === 'visible') {
+        startTracking(actionId);
+      } else {
+        endTracking(actionId);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  return {
+    startTracking,
+    endTracking,
+    metrics: latencyMetrics
+  };
+};
+
+// Get latency rating based on latency value (in ms)
+const getLatencyRating = (latency: number) => {
+  if (latency < 100) return { rating: 'excellent', color: 'text-green-500' };
+  if (latency < 300) return { rating: 'good', color: 'text-blue-400' };
+  if (latency < 600) return { rating: 'fair', color: 'text-yellow-400' };
+  return { rating: 'poor', color: 'text-red-500' };
+};
 
 const ChatMessage = ({ message, isUser = false }: { message: string; isUser?: boolean }) => {
   return (
@@ -27,17 +115,18 @@ const ChatMessage = ({ message, isUser = false }: { message: string; isUser?: bo
 };
 
 const SupportChat = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [showTooltip, setShowTooltip] = useState(true);
   const [messages, setMessages] = useState<Array<{ text: string; isUser: boolean }>>([
     {
-      text: "Hello! How can I help you today with AI automation?",
+      text: t('supportChat.welcome'),
       isUser: false,
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isCallHovered, setIsCallHovered] = useState(false);
+  const latencyTracker = useLatencyTracker();
 
   // Updated webhook URL
   const WEBHOOK_URL = "https://yeti-amusing-bedbug.ngrok-free.app/webhook/36b7472d-eb2c-4344-884c-ef3a8ed14f65";
@@ -51,10 +140,25 @@ const SupportChat = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Update welcome message when language changes
+    setMessages(prev => [
+      {
+        text: t('supportChat.welcome'),
+        isUser: false,
+      },
+      ...prev.slice(1)
+    ]);
+  }, [t]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!message.trim()) return;
+    
+    // Track this interaction
+    const actionId = `chat-submit-${Date.now()}`;
+    latencyTracker.startTracking(actionId);
     
     // Add user message
     setMessages((prev) => [...prev, { text: message, isUser: true }]);
@@ -77,6 +181,8 @@ const SupportChat = () => {
           timestamp: new Date().toISOString()
         }),
       });
+      
+      latencyTracker.endTracking(actionId);
       
       if (!response.ok) {
         throw new Error("Failed to send message to support");
@@ -128,6 +234,8 @@ const SupportChat = () => {
     } catch (error) {
       console.error("Error sending message to webhook:", error);
       
+      latencyTracker.endTracking(actionId);
+      
       // Show error toast
       toast.error("Couldn't connect to support. Please try again later.");
       
@@ -135,7 +243,7 @@ const SupportChat = () => {
       setMessages((prev) => [
         ...prev,
         {
-          text: "Sorry, I'm having trouble connecting to our support system. Please try again later or email us directly at support@neuxtrek.com",
+          text: t('supportChat.errorMessage'),
           isUser: false,
         },
       ]);
@@ -145,13 +253,21 @@ const SupportChat = () => {
   };
 
   const toggleChat = () => {
+    // Track this interaction
+    const actionId = `toggle-chat-${Date.now()}`;
+    latencyTracker.startTracking(actionId);
+    
     setIsOpen(!isOpen);
     setShowTooltip(false);
+    
+    // End tracking after a small delay to account for animation
+    setTimeout(() => {
+      latencyTracker.endTracking(actionId);
+    }, 300);
   };
 
-  const handleCallClick = () => {
-    toast.success("Requesting a call. Our team will contact you shortly.");
-  };
+  // Get latency rating for display
+  const { rating, color } = getLatencyRating(latencyTracker.metrics.lastMeasurement);
 
   return (
     <div className="fixed bottom-6 right-6 z-40">
@@ -165,25 +281,18 @@ const SupportChat = () => {
           {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
         </button>
         
-        {/* Call Button */}
-        <button
-          onClick={handleCallClick}
-          onMouseEnter={() => setIsCallHovered(true)}
-          onMouseLeave={() => setIsCallHovered(false)}
-          className={cn(
-            "absolute -left-20 bottom-0 w-14 h-14 rounded-full bg-green-600 text-white flex items-center justify-center shadow-lg hover:bg-green-500 transition-all duration-300",
-            isCallHovered ? "animate-pulse" : "animate-[shake_1s_ease-in-out_infinite]"
-          )}
-          aria-label="Request Call"
-        >
-          <Phone size={20} className={isCallHovered ? "animate-[rotate_0.5s_ease]" : ""} />
-        </button>
-        
         {/* Tooltip */}
         {showTooltip && !isOpen && (
           <div className="absolute right-20 bottom-4 bg-white text-black px-4 py-2 rounded-lg shadow-lg whitespace-nowrap">
-            Chat with me for support
+            {t('supportChat.tooltip')}
             <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 rotate-45 w-3 h-3 bg-white"></div>
+          </div>
+        )}
+        
+        {/* Latency indicator */}
+        {latencyTracker.metrics.lastMeasurement > 0 && (
+          <div className="absolute -top-10 right-0 bg-black/70 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+            Latency: <span className={color}>{Math.round(latencyTracker.metrics.lastMeasurement)}ms</span> ({t(`latency.${rating}`)})
           </div>
         )}
       </div>
@@ -222,7 +331,7 @@ const SupportChat = () => {
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Type your message..."
+              placeholder={t('supportChat.placeholder')}
               className="flex-1 bg-neuxtrek-silver/5 border border-neuxtrek-silver/20 rounded-l-md px-4 py-2 focus:outline-none focus:border-neuxtrek-gold text-neuxtrek-silver"
               disabled={isLoading}
             />

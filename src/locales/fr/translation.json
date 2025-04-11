@@ -1,0 +1,36 @@
+
+{
+  "navbar": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "caseStudies": "Études de cas",
+    "courses": "Cours",
+    "contact": "Contact",
+    "getStarted": "Commencer"
+  },
+  "supportChat": {
+    "welcome": "Bonjour ! Comment puis-je vous aider aujourd'hui avec l'automatisation IA ?",
+    "placeholder": "Tapez votre message...",
+    "sending": "Traitement en cours...",
+    "errorMessage": "Désolé, je rencontre des difficultés pour me connecter à notre système de support. Veuillez réessayer plus tard ou envoyer un email directement à support@neuxtrek.com",
+    "tooltip": "Discutez avec moi pour obtenir de l'aide"
+  },
+  "latency": {
+    "excellent": "Excellente",
+    "good": "Bonne",
+    "fair": "Correcte",
+    "poor": "Faible"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "search": "Rechercher ou demander..."
+  }
+}

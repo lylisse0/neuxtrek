@@ -1,0 +1,36 @@
+
+{
+  "navbar": {
+    "home": "홈",
+    "services": "서비스",
+    "about": "소개",
+    "caseStudies": "사례 연구",
+    "courses": "강좌",
+    "contact": "문의",
+    "getStarted": "시작하기"
+  },
+  "supportChat": {
+    "welcome": "안녕하세요! AI 자동화에 대해 어떤 도움이 필요하신가요?",
+    "placeholder": "메시지를 입력하세요...",
+    "sending": "처리 중...",
+    "errorMessage": "죄송합니다. 지원 시스템에 연결하는 데 문제가 있습니다. 나중에 다시 시도하거나 support@neuxtrek.com으로 직접 이메일을 보내주세요",
+    "tooltip": "지원을 위해 저와 채팅하세요"
+  },
+  "latency": {
+    "excellent": "매우 좋음",
+    "good": "좋음",
+    "fair": "보통",
+    "poor": "나쁨"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "submit": "제출",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "view": "보기",
+    "search": "검색 또는 질문..."
+  }
+}

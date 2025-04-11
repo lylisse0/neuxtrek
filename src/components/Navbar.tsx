@@ -1,14 +1,17 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
 import { Link, useLocation } from 'react-router-dom';
+import LanguageSelector from './LanguageSelector';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -48,12 +51,12 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { label: 'Home', href: 'home', isPage: false },
-    { label: 'Services', href: 'services', isPage: false },
-    { label: 'About', href: 'about', isPage: false },
-    { label: 'Case Studies', href: 'case-studies', isPage: false },
-    { label: 'Courses', href: '/courses', isPage: true },
-    { label: 'Contact', href: 'contact', isPage: false },
+    { label: t('navbar.home'), href: 'home', isPage: false },
+    { label: t('navbar.services'), href: 'services', isPage: false },
+    { label: t('navbar.about'), href: 'about', isPage: false },
+    { label: t('navbar.caseStudies'), href: 'case-studies', isPage: false },
+    { label: t('navbar.courses'), href: '/courses', isPage: true },
+    { label: t('navbar.contact'), href: 'contact', isPage: false },
   ];
 
   return (
@@ -91,8 +94,9 @@ const Navbar = () => {
               </button>
             )
           ))}
+          <LanguageSelector />
           <Link to="/login" className="neuxtrek-btn-primary">
-            Get Started
+            {t('navbar.getStarted')}
           </Link>
         </div>
 
@@ -135,12 +139,13 @@ const Navbar = () => {
                 </button>
               )
             ))}
+            <LanguageSelector />
             <Link 
               to="/login" 
               className="neuxtrek-btn-primary w-full text-center" 
               onClick={() => setIsOpen(false)}
             >
-              Get Started
+              {t('navbar.getStarted')}
             </Link>
           </div>
         </div>
@@ -150,3 +155,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
