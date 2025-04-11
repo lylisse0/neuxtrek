@@ -31,7 +31,10 @@
     "delete": "Xóa",
     "edit": "Chỉnh sửa",
     "view": "Xem",
-    "search": "Tìm kiếm hoặc đặt câu hỏi..."
+    "search": "Tìm kiếm hoặc đặt câu hỏi...",
+    "back": "Quay lại",
+    "continue": "Tiếp tục",
+    "processing": "Đang xử lý..."
   },
   "footer": {
     "companyInfo": "Trao quyền cho doanh nghiệp thông qua tự động hóa thông minh và giải pháp AI tiên tiến.",
@@ -119,5 +122,72 @@
     "search": "Tìm kiếm hoặc đặt câu hỏi...",
     "support": "Hỗ trợ",
     "app": "Ứng dụng"
+  },
+  "login": {
+    "title": "Đăng nhập vào tài khoản của bạn",
+    "email": "Email",
+    "emailPlaceholder": "Nhập email của bạn",
+    "password": "Mật khẩu",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "rememberMe": "Ghi nhớ tôi",
+    "forgotPassword": "Quên mật khẩu?",
+    "signIn": "Đăng nhập",
+    "signingIn": "Đang đăng nhập...",
+    "noAccount": "Chưa có tài khoản?",
+    "createAccount": "Tạo tài khoản",
+    "orContinueWith": "Hoặc tiếp tục với"
+  },
+  "setupProfile": {
+    "createUsername": "Tạo tên người dùng của bạn",
+    "usernameDescription": "Đây là cách bạn sẽ xuất hiện với người khác trên nền tảng.",
+    "username": "Tên người dùng",
+    "usernamePlaceholder": "Nhập tên người dùng của bạn",
+    "completeSetup": "Hoàn tất thiết lập",
+    "success": "Thiết lập hồ sơ hoàn tất!",
+    "questions": {
+      "companySize": "Quy mô công ty của bạn là gì?",
+      "industry": "Bạn đang ở trong ngành nào?",
+      "useCase": "Trường hợp sử dụng chính của bạn cho tự động hóa AI là gì?",
+      "experience": "Bạn đánh giá kinh nghiệm của mình với công cụ AI như thế nào?"
+    },
+    "options": {
+      "companySize": ["1-10", "11-50", "51-200", "201-500", "500+"],
+      "industry": ["Công nghệ", "Tài chính", "Y tế", "Giáo dục", "Bán lẻ", "Khác"],
+      "useCase": ["Dịch vụ khách hàng", "Phân tích dữ liệu", "Tự động hóa quy trình", "Tạo nội dung", "Khác"],
+      "experience": ["Người mới bắt đầu", "Trung cấp", "Nâng cao", "Chuyên gia"]
+    },
+    "errors": {
+      "usernameRequired": "Vui lòng nhập tên người dùng",
+      "optionRequired": "Vui lòng chọn một tùy chọn",
+      "savingFailed": "Không thể hoàn tất thiết lập hồ sơ"
+    }
+  },
+  "dashboard": {
+    "greeting": "Chào mừng đến với bảng điều khiển của bạn",
+    "summary": "Tóm tắt tự động hóa AI",
+    "recent": "Dự án gần đây",
+    "stats": "Thống kê",
+    "resources": "Tài nguyên",
+    "notifications": "Thông báo",
+    "noProjects": "Chưa có dự án nào",
+    "createProject": "Tạo dự án mới",
+    "viewAll": "Xem tất cả"
+  },
+  "courses": {
+    "title": "Khóa học tự động hóa AI",
+    "subtitle": "Nâng cao kỹ năng của bạn với các khóa học chuyên biệt của chúng tôi",
+    "featured": "Khóa học nổi bật",
+    "popular": "Khóa học phổ biến",
+    "new": "Khóa học mới",
+    "free": "Tài nguyên miễn phí",
+    "searchPlaceholder": "Tìm kiếm khóa học...",
+    "levels": {
+      "beginner": "Người mới bắt đầu",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao"
+    },
+    "duration": "Thời lượng",
+    "enrolled": "Đã đăng ký",
+    "startLearning": "Bắt đầu học"
   }
 }

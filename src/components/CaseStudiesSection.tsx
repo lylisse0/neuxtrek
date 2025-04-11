@@ -102,7 +102,6 @@ const CaseStudiesSection = () => {
                     
                     <h4 className="text-lg font-semibold mb-3 text-neuxtrek-silver">{t('caseStudies.keyResults')}</h4>
                     <ul className="space-y-2">
-                      {/* Fix: Properly handle the translated results array */}
                       {(() => {
                         const results = t(study.resultsKey, { returnObjects: true });
                         // Check if results is an array before mapping

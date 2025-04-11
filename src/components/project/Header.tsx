@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Logo from '@/components/Logo';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '@/components/LanguageSelector';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   isScrolled: boolean;
@@ -15,10 +16,10 @@ const Header = ({ isScrolled }: HeaderProps) => {
   return (
     <header className="bg-black/80 backdrop-blur-md border-b border-neuxtrek-silver/10 p-4 z-50">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <Logo isScrolled={isScrolled} />
           <p className="ml-2 text-xs text-neuxtrek-silver/70">AI Automation Agency</p>
-        </div>
+        </Link>
         
         <div className="flex items-center gap-4">
           {/* Search Bar */}

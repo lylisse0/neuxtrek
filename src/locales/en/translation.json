@@ -31,7 +31,10 @@
     "delete": "Delete",
     "edit": "Edit",
     "view": "View",
-    "search": "Search or ask..."
+    "search": "Search or ask...",
+    "back": "Back",
+    "continue": "Continue",
+    "processing": "Processing..."
   },
   "footer": {
     "companyInfo": "Empowering businesses through intelligent automation and cutting-edge AI solutions.",
@@ -119,5 +122,72 @@
     "search": "Search or ask...",
     "support": "Support",
     "app": "App"
+  },
+  "login": {
+    "title": "Sign in to your account",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create an account",
+    "orContinueWith": "Or continue with"
+  },
+  "setupProfile": {
+    "createUsername": "Create your username",
+    "usernameDescription": "This is how you'll appear to others in the platform.",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "completeSetup": "Complete Setup",
+    "success": "Profile setup complete!",
+    "questions": {
+      "companySize": "What is your company size?",
+      "industry": "Which industry are you in?",
+      "useCase": "What's your primary use case for AI automation?",
+      "experience": "How would you rate your experience with AI tools?"
+    },
+    "options": {
+      "companySize": ["1-10", "11-50", "51-200", "201-500", "500+"],
+      "industry": ["Technology", "Finance", "Healthcare", "Education", "Retail", "Other"],
+      "useCase": ["Customer Service", "Data Analysis", "Process Automation", "Content Creation", "Other"],
+      "experience": ["Beginner", "Intermediate", "Advanced", "Expert"]
+    },
+    "errors": {
+      "usernameRequired": "Please enter a username",
+      "optionRequired": "Please select an option",
+      "savingFailed": "Failed to complete profile setup"
+    }
+  },
+  "dashboard": {
+    "greeting": "Welcome to your dashboard",
+    "summary": "AI Automation Summary",
+    "recent": "Recent Projects",
+    "stats": "Statistics",
+    "resources": "Resources",
+    "notifications": "Notifications",
+    "noProjects": "No projects yet",
+    "createProject": "Create New Project",
+    "viewAll": "View All"
+  },
+  "courses": {
+    "title": "AI Automation Courses",
+    "subtitle": "Enhance your skills with our specialized courses",
+    "featured": "Featured Courses",
+    "popular": "Popular Courses",
+    "new": "New Courses",
+    "free": "Free Resources",
+    "searchPlaceholder": "Search courses...",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "duration": "Duration",
+    "enrolled": "Enrolled",
+    "startLearning": "Start Learning"
   }
 }

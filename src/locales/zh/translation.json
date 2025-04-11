@@ -31,7 +31,10 @@
     "delete": "删除",
     "edit": "编辑",
     "view": "查看",
-    "search": "搜索或提问..."
+    "search": "搜索或提问...",
+    "back": "返回",
+    "continue": "继续",
+    "processing": "处理中..."
   },
   "footer": {
     "companyInfo": "通过智能自动化和尖端AI解决方案赋能企业。",
@@ -119,5 +122,72 @@
     "search": "搜索或提问...",
     "support": "支持",
     "app": "应用"
+  },
+  "login": {
+    "title": "登录您的账户",
+    "email": "电子邮件",
+    "emailPlaceholder": "输入您的电子邮件",
+    "password": "密码",
+    "passwordPlaceholder": "输入您的密码",
+    "rememberMe": "记住我",
+    "forgotPassword": "忘记密码？",
+    "signIn": "登录",
+    "signingIn": "登录中...",
+    "noAccount": "还没有账户？",
+    "createAccount": "创建账户",
+    "orContinueWith": "或继续使用"
+  },
+  "setupProfile": {
+    "createUsername": "创建您的用户名",
+    "usernameDescription": "这将是您在平台上的显示方式。",
+    "username": "用户名",
+    "usernamePlaceholder": "输入您的用户名",
+    "completeSetup": "完成设置",
+    "success": "个人资料设置完成！",
+    "questions": {
+      "companySize": "您的公司规模是什么？",
+      "industry": "您所在的行业是什么？",
+      "useCase": "您使用AI自动化的主要用途是什么？",
+      "experience": "您如何评价自己使用AI工具的经验？"
+    },
+    "options": {
+      "companySize": ["1-10人", "11-50人", "51-200人", "201-500人", "500人以上"],
+      "industry": ["科技", "金融", "医疗", "教育", "零售", "其他"],
+      "useCase": ["客户服务", "数据分析", "流程自动化", "内容创作", "其他"],
+      "experience": ["初学者", "中级", "高级", "专家"]
+    },
+    "errors": {
+      "usernameRequired": "请输入用户名",
+      "optionRequired": "请选择一个选项",
+      "savingFailed": "无法完成个人资料设置"
+    }
+  },
+  "dashboard": {
+    "greeting": "欢迎来到您的仪表板",
+    "summary": "AI自动化摘要",
+    "recent": "近期项目",
+    "stats": "统计数据",
+    "resources": "资源",
+    "notifications": "通知",
+    "noProjects": "暂无项目",
+    "createProject": "创建新项目",
+    "viewAll": "查看全部"
+  },
+  "courses": {
+    "title": "AI自动化课程",
+    "subtitle": "通过我们的专业课程提升您的技能",
+    "featured": "精选课程",
+    "popular": "热门课程",
+    "new": "新课程",
+    "free": "免费资源",
+    "searchPlaceholder": "搜索课程...",
+    "levels": {
+      "beginner": "初级",
+      "intermediate": "中级",
+      "advanced": "高级"
+    },
+    "duration": "持续时间",
+    "enrolled": "已注册",
+    "startLearning": "开始学习"
   }
 }

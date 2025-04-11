@@ -5,36 +5,39 @@ import { Check, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/Logo';
 import { toast } from 'sonner';
-
-const questions = [
-  {
-    id: 'company-size',
-    question: 'What is your company size?',
-    options: ['1-10', '11-50', '51-200', '201-500', '500+']
-  },
-  {
-    id: 'industry',
-    question: 'Which industry are you in?',
-    options: ['Technology', 'Finance', 'Healthcare', 'Education', 'Retail', 'Other']
-  },
-  {
-    id: 'use-case',
-    question: 'What\'s your primary use case for AI automation?',
-    options: ['Customer Service', 'Data Analysis', 'Process Automation', 'Content Creation', 'Other']
-  },
-  {
-    id: 'experience',
-    question: 'How would you rate your experience with AI tools?',
-    options: ['Beginner', 'Intermediate', 'Advanced', 'Expert']
-  },
-];
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const SetupProfile = () => {
+  const { t } = useTranslation();
   const [username, setUsername] = useState('');
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const questions = [
+    {
+      id: 'company-size',
+      question: t('setupProfile.questions.companySize'),
+      options: t('setupProfile.options.companySize', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'industry',
+      question: t('setupProfile.questions.industry'),
+      options: t('setupProfile.options.industry', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'use-case',
+      question: t('setupProfile.questions.useCase'),
+      options: t('setupProfile.options.useCase', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'experience',
+      question: t('setupProfile.questions.experience'),
+      options: t('setupProfile.options.experience', { returnObjects: true }) as string[]
+    },
+  ];
 
   const handleBack = () => {
     if (currentStep > 0) {
@@ -47,14 +50,14 @@ const SetupProfile = () => {
   const handleNext = () => {
     if (currentStep === 0) {
       if (!username.trim()) {
-        toast.error('Please enter a username');
+        toast.error(t('setupProfile.errors.usernameRequired'));
         return;
       }
       setCurrentStep(1);
     } else {
       const currentQuestion = questions[currentStep - 1];
       if (!answers[currentQuestion.id]) {
-        toast.error('Please select an option');
+        toast.error(t('setupProfile.errors.optionRequired'));
         return;
       }
       
@@ -87,11 +90,11 @@ const SetupProfile = () => {
         ...answers
       }));
       
-      toast.success('Profile setup complete!');
+      toast.success(t('setupProfile.success'));
       navigate('/dashboard');
     } catch (error) {
       console.error('Error saving profile:', error);
-      toast.error('Failed to complete profile setup');
+      toast.error(t('setupProfile.errors.savingFailed'));
     } finally {
       setIsSubmitting(false);
     }
@@ -101,18 +104,18 @@ const SetupProfile = () => {
     if (currentStep === 0) {
       return (
         <div className="space-y-4">
-          <h2 className="text-xl font-medium text-neuxtrek-silver">Create your username</h2>
-          <p className="text-neuxtrek-silver/60">This is how you'll appear to others in the platform.</p>
+          <h2 className="text-xl font-medium text-neuxtrek-silver">{t('setupProfile.createUsername')}</h2>
+          <p className="text-neuxtrek-silver/60">{t('setupProfile.usernameDescription')}</p>
           
           <div>
-            <label htmlFor="username" className="sr-only">Username</label>
+            <label htmlFor="username" className="sr-only">{t('setupProfile.username')}</label>
             <input
               id="username"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full px-4 py-3 bg-black/50 border border-neuxtrek-silver/30 rounded-md focus:outline-none focus:ring-1 focus:ring-neuxtrek-gold focus:border-neuxtrek-gold text-neuxtrek-silver"
-              placeholder="Enter your username"
+              placeholder={t('setupProfile.usernamePlaceholder')}
             />
           </div>
         </div>
@@ -148,7 +151,7 @@ const SetupProfile = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-black to-[#111]">
-      <div className="p-6">
+      <div className="p-6 flex justify-between">
         <Button 
           variant="ghost" 
           size="sm" 
@@ -156,8 +159,9 @@ const SetupProfile = () => {
           onClick={handleBack}
         >
           <ArrowLeft className="mr-2" size={16} />
-          Back
+          {t('common.back')}
         </Button>
+        <LanguageSelector />
       </div>
       
       <div className="flex-1 flex items-center justify-center p-4">
@@ -190,7 +194,7 @@ const SetupProfile = () => {
               className="border-neuxtrek-silver/30 text-neuxtrek-silver hover:bg-black/30 hover:text-neuxtrek-gold"
             >
               <ArrowLeft className="mr-2" size={16} />
-              Back
+              {t('common.back')}
             </Button>
             
             <Button 
@@ -201,11 +205,11 @@ const SetupProfile = () => {
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
                   <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin mr-2"></span>
-                  Processing...
+                  {t('common.processing')}
                 </span>
               ) : (
                 <>
-                  {currentStep === questions.length ? 'Complete Setup' : 'Continue'}
+                  {currentStep === questions.length ? t('setupProfile.completeSetup') : t('common.continue')}
                   <ArrowRight className="ml-2" size={16} />
                 </>
               )}

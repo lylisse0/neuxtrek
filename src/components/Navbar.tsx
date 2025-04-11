@@ -34,8 +34,7 @@ const Navbar = () => {
 
     // If we're not on the homepage, navigate to home first
     if (location.pathname !== '/') {
-      // We need to navigate to homepage and then scroll
-      // This can be handled with state, but for now, we'll use a simpler approach
+      // Navigate to homepage and then scroll
       window.location.href = `/#${sectionId}`;
       return;
     }
@@ -155,4 +154,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
