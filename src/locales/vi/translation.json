@@ -32,5 +32,92 @@
     "edit": "Chỉnh sửa",
     "view": "Xem",
     "search": "Tìm kiếm hoặc đặt câu hỏi..."
+  },
+  "footer": {
+    "companyInfo": "Trao quyền cho doanh nghiệp thông qua tự động hóa thông minh và giải pháp AI tiên tiến.",
+    "quickLinks": "Liên kết nhanh",
+    "services": "Dịch vụ của chúng tôi",
+    "contactUs": "Liên hệ với chúng tôi",
+    "rights": "Tất cả các quyền được bảo lưu.",
+    "privacyPolicy": "Chính sách bảo mật",
+    "termsOfService": "Điều khoản dịch vụ",
+    "sitemap": "Sơ đồ trang"
+  },
+  "hero": {
+    "title": "Tự động hóa bằng AI cho tương lai kinh doanh",
+    "subtitle": "Chuyển đổi hoạt động của bạn với các giải pháp trí tuệ nhân tạo tiên tiến",
+    "ctaButton": "Bắt đầu",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "content": "Tại NeuXTrek, chúng tôi là những người tiên phong trong lĩnh vực tự động hóa AI, kết hợp công nghệ tiên tiến với chuyên môn sâu rộng trong ngành để mang đến các giải pháp chuyển đổi cho doanh nghiệp ở nhiều lĩnh vực.",
+    "mission": "Sứ mệnh của chúng tôi là khai thác sức mạnh của trí tuệ nhân tạo để tối ưu hóa hoạt động, thúc đẩy đổi mới và tạo ra lợi thế cạnh tranh bền vững cho khách hàng. Chúng tôi tin rằng tự động hóa thông minh là chìa khóa để mở ra những mức độ hiệu quả và tăng trưởng chưa từng có trong kỷ nguyên số.",
+    "founding": "Được thành lập bởi một nhóm các nhà nghiên cứu AI, kỹ sư và chiến lược gia kinh doanh, NeuXTrek tập hợp các chuyên môn đa dạng để giải quyết những thách thức phức tạp nhất trong tự động hóa quy trình kinh doanh.",
+    "stats": {
+      "clients": "Khách hàng hài lòng",
+      "models": "Mô hình AI đã triển khai",
+      "awards": "Giải thưởng ngành"
+    }
+  },
+  "services": {
+    "title": "Dịch vụ của chúng tôi",
+    "subtitle": "Giải pháp tự động hóa AI toàn diện để chuyển đổi doanh nghiệp của bạn",
+    "processAuto": "Tự động hóa quy trình AI",
+    "dataAnalytics": "Phân tích dữ liệu",
+    "customDev": "Phát triển AI tùy chỉnh",
+    "integration": "Tích hợp tự động hóa",
+    "consulting": "Tư vấn chiến lược AI"
+  },
+  "caseStudies": {
+    "title": "Dự án thực tế",
+    "subtitle": "Những câu chuyện thành công trong thế giới thực giới thiệu các giải pháp tự động hóa AI của chúng tôi",
+    "keyResults": "Kết quả chính:",
+    "manufacturing": {
+      "title": "Tối ưu hóa quy trình sản xuất",
+      "client": "Tập đoàn sản xuất toàn cầu",
+      "description": "Triển khai hệ thống dựa trên AI giảm 35% lỗi sản xuất và tăng hiệu quả tổng thể lên 28% trong vòng sáu tháng.",
+      "results": [
+        "Giảm 35% lỗi sản xuất",
+        "Tăng 28% hiệu quả sản xuất",
+        "Tiết kiệm chi phí hàng năm 2,4 triệu đô la"
+      ]
+    },
+    "finance": {
+      "title": "Hệ thống phát hiện gian lận tài chính",
+      "client": "Ngân hàng NextGen",
+      "description": "Phát triển mô hình học máy nhận diện các mẫu gian lận tiềm năng trong thời gian thực, cải thiện 42% tỷ lệ phát hiện gian lận.",
+      "results": [
+        "Cải thiện 42% trong phát hiện gian lận",
+        "Giảm 89% cảnh báo sai",
+        "Tăng cường tin cậy và bảo mật cho khách hàng"
+      ]
+    },
+    "healthcare": {
+      "title": "Tối ưu hóa luồng bệnh nhân y tế",
+      "client": "Trung tâm y tế thành phố",
+      "description": "Tạo hệ thống quản lý bệnh nhân bằng AI giảm thời gian chờ đợi 47% và cải thiện phân bổ nguồn lực giữa các phòng ban.",
+      "results": [
+        "Giảm 47% thời gian chờ đợi của bệnh nhân",
+        "Cải thiện 23% việc sử dụng nguồn lực",
+        "Tăng 31% điểm hài lòng của bệnh nhân"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Liên hệ với chúng tôi",
+    "subtitle": "Sẵn sàng chuyển đổi doanh nghiệp của bạn với tự động hóa AI? Liên hệ với đội ngũ của chúng tôi.",
+    "name": "Họ tên",
+    "email": "Email",
+    "company": "Công ty",
+    "message": "Tin nhắn",
+    "sendMessage": "Gửi tin nhắn",
+    "sending": "Đang gửi...",
+    "success": "Cảm ơn bạn đã gửi tin nhắn! Vui lòng kiểm tra email để biết thêm thông tin. Nếu bạn không nhận được gì trong vòng 24 giờ, vui lòng gửi lại yêu cầu của bạn."
+  },
+  "projectHeader": {
+    "search": "Tìm kiếm hoặc đặt câu hỏi...",
+    "support": "Hỗ trợ",
+    "app": "Ứng dụng"
   }
 }

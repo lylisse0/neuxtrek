@@ -25,7 +25,7 @@ const Header = ({ isScrolled }: HeaderProps) => {
           <div className="relative hidden md:flex items-center">
             <Input 
               type="text" 
-              placeholder={t('common.search')} 
+              placeholder={t('projectHeader.search')} 
               className="w-64 bg-neuxtrek-silver/10 border-neuxtrek-silver/20"
             />
             <span className="absolute right-3 text-xs text-neuxtrek-silver/50">Ctrl K</span>
@@ -36,11 +36,11 @@ const Header = ({ isScrolled }: HeaderProps) => {
           
           {/* Buttons */}
           <Button variant="ghost" size="sm" className="text-neuxtrek-silver">
-            Support
+            {t('projectHeader.support')}
           </Button>
           
           <Button className="bg-neuxtrek-gold hover:bg-neuxtrek-gold/90 text-black" size="sm">
-            App
+            {t('projectHeader.app')}
           </Button>
         </div>
       </div>

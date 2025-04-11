@@ -32,5 +32,92 @@
     "edit": "Edit",
     "view": "View",
     "search": "Search or ask..."
+  },
+  "footer": {
+    "companyInfo": "Empowering businesses through intelligent automation and cutting-edge AI solutions.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "sitemap": "Sitemap"
+  },
+  "hero": {
+    "title": "AI-Driven Automation for the Future of Business",
+    "subtitle": "Transform your operations with cutting-edge artificial intelligence solutions",
+    "ctaButton": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "about": {
+    "title": "About",
+    "content": "At NeuXTrek, we are pioneers in the field of AI automation, combining cutting-edge technology with deep industry expertise to deliver transformative solutions for businesses across sectors.",
+    "mission": "Our mission is to harness the power of artificial intelligence to optimize operations, drive innovation, and create sustainable competitive advantages for our clients. We believe that intelligent automation is the key to unlocking unprecedented levels of efficiency and growth in the digital era.",
+    "founding": "Founded by a team of AI researchers, engineers, and business strategists, NeuXTrek brings together diverse expertise to tackle the most complex challenges in business process automation.",
+    "stats": {
+      "clients": "Satisfied Clients",
+      "models": "AI Models Deployed",
+      "awards": "Industry Awards"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive AI automation solutions to transform your business",
+    "processAuto": "AI Process Automation",
+    "dataAnalytics": "Data Analytics",
+    "customDev": "Custom AI Development",
+    "integration": "Automation Integration",
+    "consulting": "AI Strategy Consulting"
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "subtitle": "Real-world success stories showcasing our AI automation solutions",
+    "keyResults": "Key Results:",
+    "manufacturing": {
+      "title": "Manufacturing Process Optimization",
+      "client": "Global Manufacturing Corp",
+      "description": "Implemented an AI-driven system that reduced production errors by 35% and increased overall efficiency by 28% within six months.",
+      "results": [
+        "35% reduction in production errors",
+        "28% increase in manufacturing efficiency",
+        "$2.4M annual cost savings"
+      ]
+    },
+    "finance": {
+      "title": "Financial Fraud Detection System",
+      "client": "NextGen Banking",
+      "description": "Developed a machine learning model that identifies potential fraud patterns in real-time, resulting in a 42% improvement in fraud detection rates.",
+      "results": [
+        "42% improvement in fraud detection",
+        "89% reduction in false positives",
+        "Enhanced customer trust and security"
+      ]
+    },
+    "healthcare": {
+      "title": "Healthcare Patient Flow Optimization",
+      "client": "Metropolitan Medical Center",
+      "description": "Created an AI-powered patient management system that decreased wait times by 47% and improved resource allocation across departments.",
+      "results": [
+        "47% reduction in patient wait times",
+        "23% improvement in resource utilization",
+        "Increased patient satisfaction scores by 31%"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to transform your business with AI automation? Get in touch with our team.",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "success": "Thank you for your message! Please check your email for further information. If you don't receive anything within 24 hours, please submit your request again."
+  },
+  "projectHeader": {
+    "search": "Search or ask...",
+    "support": "Support",
+    "app": "App"
   }
 }

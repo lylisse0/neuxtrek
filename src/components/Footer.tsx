@@ -1,8 +1,10 @@
 
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import Logo from "./Logo";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   
   return (
@@ -14,7 +16,7 @@ const Footer = () => {
             <Logo />
             
             <p className="text-neuxtrek-silver/70 max-w-xs">
-              Empowering businesses through intelligent automation and cutting-edge AI solutions.
+              {t('footer.companyInfo')}
             </p>
             
             <div className="flex space-x-4">
@@ -51,15 +53,21 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-neuxtrek-silver">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6 text-neuxtrek-silver">{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
-              {['Home', 'Services', 'About', 'Case Studies', 'Contact'].map((item) => (
-                <li key={item}>
+              {[
+                { key: 'navbar.home', href: 'home' },
+                { key: 'navbar.services', href: 'services' },
+                { key: 'navbar.about', href: 'about' },
+                { key: 'navbar.caseStudies', href: 'case-studies' },
+                { key: 'navbar.contact', href: 'contact' }
+              ].map((item) => (
+                <li key={item.key}>
                   <a 
-                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    href={`#${item.href}`}
                     className="text-neuxtrek-silver/70 hover:text-neuxtrek-gold transition-colors"
                   >
-                    {item}
+                    {t(item.key)}
                   </a>
                 </li>
               ))}
@@ -68,21 +76,21 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-neuxtrek-silver">Our Services</h3>
+            <h3 className="text-lg font-semibold mb-6 text-neuxtrek-silver">{t('footer.services')}</h3>
             <ul className="space-y-3">
               {[
-                'AI Process Automation',
-                'Data Analytics',
-                'Custom AI Development',
-                'Automation Integration',
-                'AI Strategy Consulting'
+                'services.processAuto',
+                'services.dataAnalytics',
+                'services.customDev',
+                'services.integration',
+                'services.consulting'
               ].map((item) => (
                 <li key={item}>
                   <a 
                     href="#services"
                     className="text-neuxtrek-silver/70 hover:text-neuxtrek-gold transition-colors"
                   >
-                    {item}
+                    {t(item)}
                   </a>
                 </li>
               ))}
@@ -91,7 +99,7 @@ const Footer = () => {
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-neuxtrek-silver">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-6 text-neuxtrek-silver">{t('footer.contactUs')}</h3>
             <ul className="space-y-4">
               <li className="flex">
                 <MapPin className="mr-3 text-neuxtrek-gold flex-shrink-0" size={20} />
@@ -124,17 +132,21 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-neuxtrek-silver/10 text-center sm:flex sm:justify-between">
           <p className="text-neuxtrek-silver/50 text-sm mb-4 sm:mb-0">
-            © {currentYear} NeuXTrek. All rights reserved.
+            © {currentYear} NeuXTrek. {t('footer.rights')}
           </p>
           
           <div className="flex justify-center space-x-6">
-            {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((item) => (
+            {[
+              { key: 'footer.privacyPolicy', href: '#' },
+              { key: 'footer.termsOfService', href: '#' },
+              { key: 'footer.sitemap', href: '#' }
+            ].map((item) => (
               <a 
-                key={item}
-                href="#"
+                key={item.key}
+                href={item.href}
                 className="text-neuxtrek-silver/50 hover:text-neuxtrek-gold text-sm transition-colors"
               >
-                {item}
+                {t(item.key)}
               </a>
             ))}
           </div>

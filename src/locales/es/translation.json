@@ -32,5 +32,92 @@
     "edit": "Editar",
     "view": "Ver",
     "search": "Buscar o preguntar..."
+  },
+  "footer": {
+    "companyInfo": "Potenciando empresas a través de automatización inteligente y soluciones de IA de vanguardia.",
+    "quickLinks": "Enlaces Rápidos",
+    "services": "Nuestros Servicios",
+    "contactUs": "Contáctenos",
+    "rights": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "sitemap": "Mapa del Sitio"
+  },
+  "hero": {
+    "title": "Automatización Impulsada por IA para el Futuro de los Negocios",
+    "subtitle": "Transforma tus operaciones con soluciones de inteligencia artificial de vanguardia",
+    "ctaButton": "Comenzar",
+    "learnMore": "Saber Más"
+  },
+  "about": {
+    "title": "Acerca de",
+    "content": "En NeuXTrek, somos pioneros en el campo de la automatización de IA, combinando tecnología de vanguardia con profunda experiencia en la industria para ofrecer soluciones transformadoras para empresas en diversos sectores.",
+    "mission": "Nuestra misión es aprovechar el poder de la inteligencia artificial para optimizar operaciones, impulsar la innovación y crear ventajas competitivas sostenibles para nuestros clientes. Creemos que la automatización inteligente es la clave para desbloquear niveles sin precedentes de eficiencia y crecimiento en la era digital.",
+    "founding": "Fundada por un equipo de investigadores de IA, ingenieros y estrategas de negocios, NeuXTrek reúne diversa experiencia para abordar los desafíos más complejos en la automatización de procesos empresariales.",
+    "stats": {
+      "clients": "Clientes Satisfechos",
+      "models": "Modelos de IA Implementados",
+      "awards": "Premios de la Industria"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones integrales de automatización de IA para transformar tu negocio",
+    "processAuto": "Automatización de Procesos con IA",
+    "dataAnalytics": "Análisis de Datos",
+    "customDev": "Desarrollo Personalizado de IA",
+    "integration": "Integración de Automatización",
+    "consulting": "Consultoría en Estrategia de IA"
+  },
+  "caseStudies": {
+    "title": "Casos de Estudio",
+    "subtitle": "Historias de éxito del mundo real que muestran nuestras soluciones de automatización de IA",
+    "keyResults": "Resultados Clave:",
+    "manufacturing": {
+      "title": "Optimización de Procesos de Fabricación",
+      "client": "Corporación Global de Manufactura",
+      "description": "Implementamos un sistema impulsado por IA que redujo los errores de producción en un 35% y aumentó la eficiencia general en un 28% en seis meses.",
+      "results": [
+        "35% de reducción en errores de producción",
+        "28% de aumento en eficiencia de fabricación",
+        "$2.4M de ahorro anual en costos"
+      ]
+    },
+    "finance": {
+      "title": "Sistema de Detección de Fraude Financiero",
+      "client": "Banca NextGen",
+      "description": "Desarrollamos un modelo de aprendizaje automático que identifica patrones potenciales de fraude en tiempo real, lo que resultó en una mejora del 42% en las tasas de detección de fraude.",
+      "results": [
+        "42% de mejora en detección de fraude",
+        "89% de reducción en falsos positivos",
+        "Mayor confianza y seguridad para el cliente"
+      ]
+    },
+    "healthcare": {
+      "title": "Optimización del Flujo de Pacientes en Salud",
+      "client": "Centro Médico Metropolitano",
+      "description": "Creamos un sistema de gestión de pacientes impulsado por IA que disminuyó los tiempos de espera en un 47% y mejoró la asignación de recursos en los departamentos.",
+      "results": [
+        "47% de reducción en tiempos de espera de pacientes",
+        "23% de mejora en utilización de recursos",
+        "Aumento del 31% en puntuaciones de satisfacción de pacientes"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "subtitle": "¿Listo para transformar tu negocio con automatización de IA? Ponte en contacto con nuestro equipo.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "company": "Empresa",
+    "message": "Mensaje",
+    "sendMessage": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Gracias por tu mensaje! Por favor, revisa tu correo electrónico para más información. Si no recibes nada dentro de 24 horas, envía tu solicitud nuevamente."
+  },
+  "projectHeader": {
+    "search": "Buscar o preguntar...",
+    "support": "Soporte",
+    "app": "Aplicación"
   }
 }

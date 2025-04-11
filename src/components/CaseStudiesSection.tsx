@@ -1,48 +1,38 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-
-const caseStudies = [
-  {
-    id: 1,
-    title: 'Manufacturing Process Optimization',
-    client: 'Global Manufacturing Corp',
-    description: 'Implemented an AI-driven system that reduced production errors by 35% and increased overall efficiency by 28% within six months.',
-    results: [
-      '35% reduction in production errors',
-      '28% increase in manufacturing efficiency',
-      '$2.4M annual cost savings',
-    ],
-    image: '/manufacturing.jpg' // This would be an actual image file in your project
-  },
-  {
-    id: 2,
-    title: 'Financial Fraud Detection System',
-    client: 'NextGen Banking',
-    description: 'Developed a machine learning model that identifies potential fraud patterns in real-time, resulting in a 42% improvement in fraud detection rates.',
-    results: [
-      '42% improvement in fraud detection',
-      '89% reduction in false positives',
-      'Enhanced customer trust and security',
-    ],
-    image: '/finance.jpg'
-  },
-  {
-    id: 3,
-    title: 'Healthcare Patient Flow Optimization',
-    client: 'Metropolitan Medical Center',
-    description: 'Created an AI-powered patient management system that decreased wait times by 47% and improved resource allocation across departments.',
-    results: [
-      '47% reduction in patient wait times',
-      '23% improvement in resource utilization',
-      'Increased patient satisfaction scores by 31%',
-    ],
-    image: '/healthcare.jpg'
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const CaseStudiesSection = () => {
-  const [activeStudy, setActiveStudy] = useState(caseStudies[0].id);
+  const { t } = useTranslation();
+  const [activeStudy, setActiveStudy] = useState('manufacturing');
+
+  const caseStudies = [
+    {
+      id: 'manufacturing',
+      titleKey: 'caseStudies.manufacturing.title',
+      clientKey: 'caseStudies.manufacturing.client',
+      descriptionKey: 'caseStudies.manufacturing.description',
+      resultsKey: 'caseStudies.manufacturing.results',
+      image: '/manufacturing.jpg'
+    },
+    {
+      id: 'finance',
+      titleKey: 'caseStudies.finance.title',
+      clientKey: 'caseStudies.finance.client',
+      descriptionKey: 'caseStudies.finance.description',
+      resultsKey: 'caseStudies.finance.results',
+      image: '/finance.jpg'
+    },
+    {
+      id: 'healthcare',
+      titleKey: 'caseStudies.healthcare.title',
+      clientKey: 'caseStudies.healthcare.client',
+      descriptionKey: 'caseStudies.healthcare.description',
+      resultsKey: 'caseStudies.healthcare.results',
+      image: '/healthcare.jpg'
+    },
+  ];
 
   return (
     <section id="case-studies" className="neuxtrek-section bg-gradient-to-b from-black to-neuxtrek-black/80 relative">
@@ -50,9 +40,9 @@ const CaseStudiesSection = () => {
       
       <div className="neuxtrek-container">
         <div className="text-center mb-16">
-          <h2 className="neuxtrek-heading mb-4">Case <span className="gold-text">Studies</span></h2>
+          <h2 className="neuxtrek-heading mb-4">{t('caseStudies.title')} <span className="gold-text">{t('caseStudies.title')}</span></h2>
           <p className="neuxtrek-subheading max-w-3xl mx-auto">
-            Real-world success stories showcasing our AI automation solutions
+            {t('caseStudies.subtitle')}
           </p>
         </div>
         
@@ -75,9 +65,9 @@ const CaseStudiesSection = () => {
                     "text-xl font-bold mb-1 transition-colors",
                     activeStudy === study.id ? "text-neuxtrek-gold" : "text-neuxtrek-silver"
                   )}>
-                    {study.title}
+                    {t(study.titleKey)}
                   </h3>
-                  <p className="text-sm text-neuxtrek-silver/70">{study.client}</p>
+                  <p className="text-sm text-neuxtrek-silver/70">{t(study.clientKey)}</p>
                 </button>
               ))}
             </div>
@@ -107,17 +97,19 @@ const CaseStudiesSection = () => {
                   </div>
                   
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-3 text-neuxtrek-gold">{study.title}</h3>
-                    <p className="text-neuxtrek-silver mb-6">{study.description}</p>
+                    <h3 className="text-2xl font-bold mb-3 text-neuxtrek-gold">{t(study.titleKey)}</h3>
+                    <p className="text-neuxtrek-silver mb-6">{t(study.descriptionKey)}</p>
                     
-                    <h4 className="text-lg font-semibold mb-3 text-neuxtrek-silver">Key Results:</h4>
+                    <h4 className="text-lg font-semibold mb-3 text-neuxtrek-silver">{t('caseStudies.keyResults')}</h4>
                     <ul className="space-y-2">
-                      {study.results.map((result, index) => (
-                        <li key={index} className="flex items-center text-neuxtrek-silver/80">
-                          <span className="mr-2 text-neuxtrek-gold">•</span>
-                          {result}
-                        </li>
-                      ))}
+                      {Array.isArray(t(study.resultsKey, { returnObjects: true })) && 
+                        t(study.resultsKey, { returnObjects: true }).map((result: string, index: number) => (
+                          <li key={index} className="flex items-center text-neuxtrek-silver/80">
+                            <span className="mr-2 text-neuxtrek-gold">•</span>
+                            {result}
+                          </li>
+                        ))
+                      }
                     </ul>
                   </div>
                 </div>

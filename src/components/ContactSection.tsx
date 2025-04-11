@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { useTranslation } from 'react-i18next';
 
 // Define an interface for the form data
 interface ContactFormData {
@@ -50,6 +51,7 @@ const NotificationOverlay = ({ message, onClose }: { message: string; onClose: (
 };
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -126,9 +128,9 @@ const ContactSection = () => {
       
       <div className="neuxtrek-container">
         <div className="text-center mb-16">
-          <h2 className="neuxtrek-heading mb-4">Contact <span className="gold-text">Us</span></h2>
+          <h2 className="neuxtrek-heading mb-4">{t('contact.title')} <span className="gold-text">{t('contact.title')}</span></h2>
           <p className="neuxtrek-subheading max-w-3xl mx-auto">
-            Ready to transform your business with AI automation? Get in touch with our team.
+            {t('contact.subtitle')}
           </p>
         </div>
         
@@ -137,7 +139,7 @@ const ContactSection = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-medium text-neuxtrek-silver">
-                  Name <span className="text-neuxtrek-gold">*</span>
+                  {t('contact.name')} <span className="text-neuxtrek-gold">*</span>
                 </label>
                 <input
                   type="text"
@@ -147,13 +149,13 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   className="w-full bg-neuxtrek-silver/5 border border-neuxtrek-silver/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-neuxtrek-gold/50 focus:border-transparent text-neuxtrek-silver"
-                  placeholder="Your name"
+                  placeholder={t('contact.name')}
                 />
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="email" className="block text-sm font-medium text-neuxtrek-silver">
-                  Email <span className="text-neuxtrek-gold">*</span>
+                  {t('contact.email')} <span className="text-neuxtrek-gold">*</span>
                 </label>
                 <input
                   type="email"
@@ -170,7 +172,7 @@ const ContactSection = () => {
             
             <div className="space-y-2">
               <label htmlFor="company" className="block text-sm font-medium text-neuxtrek-silver">
-                Company
+                {t('contact.company')}
               </label>
               <input
                 type="text"
@@ -179,13 +181,13 @@ const ContactSection = () => {
                 value={formData.company}
                 onChange={handleInputChange}
                 className="w-full bg-neuxtrek-silver/5 border border-neuxtrek-silver/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-neuxtrek-gold/50 focus:border-transparent text-neuxtrek-silver"
-                placeholder="Your company name"
+                placeholder={t('contact.company')}
               />
             </div>
             
             <div className="space-y-2">
               <label htmlFor="message" className="block text-sm font-medium text-neuxtrek-silver">
-                Message <span className="text-neuxtrek-gold">*</span>
+                {t('contact.message')} <span className="text-neuxtrek-gold">*</span>
               </label>
               <textarea
                 id="message"
@@ -195,7 +197,7 @@ const ContactSection = () => {
                 required
                 rows={5}
                 className="w-full bg-neuxtrek-silver/5 border border-neuxtrek-silver/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-neuxtrek-gold/50 focus:border-transparent text-neuxtrek-silver"
-                placeholder="How can we help with your AI automation needs?"
+                placeholder={t('contact.message')}
               ></textarea>
             </div>
             
@@ -211,12 +213,12 @@ const ContactSection = () => {
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Sending...
+                    {t('contact.sending')}
                   </>
                 ) : (
                   <>
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    {t('contact.sendMessage')}
                   </>
                 )}
               </button>
@@ -228,7 +230,7 @@ const ContactSection = () => {
       {/* Success Notification */}
       {showNotification && (
         <NotificationOverlay
-          message="Thank you for your message! Please check your email for further information. If you don't receive anything within 24 hours, please submit your request again."
+          message={t('contact.success')}
           onClose={() => setShowNotification(false)}
         />
       )}

@@ -32,5 +32,92 @@
     "edit": "编辑",
     "view": "查看",
     "search": "搜索或提问..."
+  },
+  "footer": {
+    "companyInfo": "通过智能自动化和尖端AI解决方案赋能企业。",
+    "quickLinks": "快速链接",
+    "services": "我们的服务",
+    "contactUs": "联系我们",
+    "rights": "版权所有。",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "sitemap": "网站地图"
+  },
+  "hero": {
+    "title": "AI驱动的自动化，引领商业未来",
+    "subtitle": "通过尖端人工智能解决方案转变您的运营",
+    "ctaButton": "开始使用",
+    "learnMore": "了解更多"
+  },
+  "about": {
+    "title": "关于我们",
+    "content": "在NeuXTrek，我们是AI自动化领域的先驱，将尖端技术与深厚的行业专业知识相结合，为各行各业的企业提供变革性解决方案。",
+    "mission": "我们的使命是利用人工智能的力量优化运营，推动创新，为客户创造可持续的竞争优势。我们相信智能自动化是在数字时代释放前所未有的效率和增长水平的关键。",
+    "founding": "NeuXTrek由AI研究人员、工程师和商业战略家团队创立，汇集了多元化的专业知识，解决业务流程自动化中最复杂的挑战。",
+    "stats": {
+      "clients": "满意客户",
+      "models": "已部署AI模型",
+      "awards": "行业奖项"
+    }
+  },
+  "services": {
+    "title": "我们的服务",
+    "subtitle": "全面的AI自动化解决方案，变革您的业务",
+    "processAuto": "AI流程自动化",
+    "dataAnalytics": "数据分析",
+    "customDev": "定制AI开发",
+    "integration": "自动化集成",
+    "consulting": "AI策略咨询"
+  },
+  "caseStudies": {
+    "title": "案例研究",
+    "subtitle": "展示我们AI自动化解决方案的真实成功案例",
+    "keyResults": "关键成果：",
+    "manufacturing": {
+      "title": "制造流程优化",
+      "client": "全球制造公司",
+      "description": "实施了一个AI驱动的系统，在六个月内将生产错误减少了35%，总体效率提高了28%。",
+      "results": [
+        "生产错误减少35%",
+        "制造效率提高28%",
+        "年度成本节省240万美元"
+      ]
+    },
+    "finance": {
+      "title": "金融欺诈检测系统",
+      "client": "NextGen银行",
+      "description": "开发了一个实时识别潜在欺诈模式的机器学习模型，使欺诈检测率提高了42%。",
+      "results": [
+        "欺诈检测提高42%",
+        "误报减少89%",
+        "增强客户信任和安全性"
+      ]
+    },
+    "healthcare": {
+      "title": "医疗患者流程优化",
+      "client": "都市医疗中心",
+      "description": "创建了一个AI驱动的患者管理系统，将等待时间减少了47%，改善了各部门之间的资源分配。",
+      "results": [
+        "患者等待时间减少47%",
+        "资源利用率提高23%",
+        "患者满意度评分提高31%"
+      ]
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "准备好用AI自动化转变您的业务了吗？与我们的团队联系。",
+    "name": "姓名",
+    "email": "电子邮件",
+    "company": "公司",
+    "message": "留言",
+    "sendMessage": "发送消息",
+    "sending": "发送中...",
+    "success": "感谢您的留言！请查看您的邮箱获取更多信息。如果您在24小时内没有收到任何内容，请重新提交您的请求。"
+  },
+  "projectHeader": {
+    "search": "搜索或提问...",
+    "support": "支持",
+    "app": "应用"
   }
 }

@@ -11,13 +11,13 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'vi', name: 'Tiếng Việt' },
-  { code: 'ja', name: '日本語' },
-  { code: 'zh', name: '中文' },
-  { code: 'ko', name: '한국어' },
-  { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'zh', name: '中文', flag: '🇨🇳' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
 ];
 
 const LanguageSelector = () => {
@@ -29,21 +29,25 @@ const LanguageSelector = () => {
     setIsOpen(false);
   };
 
+  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="text-neuxtrek-silver flex items-center">
+        <Button variant="ghost" size="sm" className="text-neuxtrek-silver flex items-center hover:text-neuxtrek-gold hover:bg-neuxtrek-silver/5">
           <Globe className="w-4 h-4 mr-2" />
-          {languages.find(lang => lang.code === i18n.language)?.name || 'English'}
+          <span className="mr-1">{currentLanguage.flag}</span>
+          {currentLanguage.name}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent align="end" className="min-w-[160px] bg-black/90 border border-neuxtrek-silver/20 backdrop-blur-md">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => changeLanguage(language.code)}
-            className={i18n.language === language.code ? 'bg-neuxtrek-gold/10 text-neuxtrek-gold' : ''}
+            className={`flex items-center ${i18n.language === language.code ? 'bg-neuxtrek-gold/10 text-neuxtrek-gold' : 'text-neuxtrek-silver hover:text-neuxtrek-gold'}`}
           >
+            <span className="mr-2">{language.flag}</span>
             {language.name}
           </DropdownMenuItem>
         ))}
