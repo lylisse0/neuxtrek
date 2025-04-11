@@ -102,14 +102,26 @@ const CaseStudiesSection = () => {
                     
                     <h4 className="text-lg font-semibold mb-3 text-neuxtrek-silver">{t('caseStudies.keyResults')}</h4>
                     <ul className="space-y-2">
-                      {Array.isArray(t(study.resultsKey, { returnObjects: true })) && 
-                        t(study.resultsKey, { returnObjects: true }).map((result: string, index: number) => (
-                          <li key={index} className="flex items-center text-neuxtrek-silver/80">
+                      {/* Fix: Properly handle the translated results array */}
+                      {(() => {
+                        const results = t(study.resultsKey, { returnObjects: true });
+                        // Check if results is an array before mapping
+                        if (Array.isArray(results)) {
+                          return results.map((result: string, index: number) => (
+                            <li key={index} className="flex items-center text-neuxtrek-silver/80">
+                              <span className="mr-2 text-neuxtrek-gold">•</span>
+                              {result}
+                            </li>
+                          ));
+                        }
+                        // Fallback in case translation doesn't return an array
+                        return (
+                          <li className="flex items-center text-neuxtrek-silver/80">
                             <span className="mr-2 text-neuxtrek-gold">•</span>
-                            {result}
+                            No results available
                           </li>
-                        ))
-                      }
+                        );
+                      })()}
                     </ul>
                   </div>
                 </div>
