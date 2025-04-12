@@ -7,7 +7,7 @@ import SupportChat from '@/components/SupportChat';
 
 const Classroom = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Navbar />
       <div className="pt-28">
         <ClassroomContent />
