@@ -8,7 +8,7 @@ import SupportChat from '@/components/SupportChat';
 
 const Community = () => {
   return (
-    <div className="min-h-screen bg-neuxtrek-black text-neuxtrek-silver">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <div className="pt-28">
         <CommunityHeader />
