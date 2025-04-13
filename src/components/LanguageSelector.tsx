@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { Globe } from 'lucide-react';
@@ -21,43 +21,31 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState(i18n.language);
-
-  // Effect to update the document language attribute when language changes
-  useEffect(() => {
-    document.documentElement.lang = i18n.language;
-    document.documentElement.dir = i18n.dir();
-  }, [i18n.language, i18n.dir]);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    setCurrentLang(lng);
     setIsOpen(false);
-    
-    // Add a visual feedback for language change
-    const event = new CustomEvent('languageChanged', { detail: { language: lng } });
-    document.dispatchEvent(event);
   };
 
-  const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
+  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="text-foreground hover:text-neuxtrek-gold hover:bg-neuxtrek-silver/5 transition-colors">
+        <Button variant="ghost" size="sm" className="text-neuxtrek-silver flex items-center hover:text-neuxtrek-gold hover:bg-neuxtrek-silver/5">
           <Globe className="w-4 h-4 mr-2" />
           <span className="mr-1">{currentLanguage.flag}</span>
           {currentLanguage.name}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[160px] bg-popover border border-border">
+      <DropdownMenuContent align="end" className="min-w-[160px] bg-black/90 border border-neuxtrek-silver/20 backdrop-blur-md">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => changeLanguage(language.code)}
-            className={`flex items-center cursor-pointer transition-colors ${currentLang === language.code ? 'bg-accent text-accent-foreground' : 'text-foreground hover:text-neuxtrek-gold'}`}
+            className={`flex items-center ${i18n.language === language.code ? 'bg-neuxtrek-gold/10 text-neuxtrek-gold' : 'text-neuxtrek-silver hover:text-neuxtrek-gold'}`}
           >
             <span className="mr-2">{language.flag}</span>
             {language.name}
