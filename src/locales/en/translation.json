@@ -1,4 +1,3 @@
-
 {
   "navbar": {
     "home": "Home",
@@ -108,7 +107,7 @@
     }
   },
   "contact": {
-    "title": "Contact Us",
+    "title": "Contact Us NeuXTrek",
     "subtitle": "Ready to transform your business with AI automation? Get in touch with our team.",
     "name": "Name",
     "email": "Email",

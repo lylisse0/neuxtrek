@@ -1,4 +1,3 @@
-
 {
   "navbar": {
     "home": "Trang chủ",
@@ -108,7 +107,7 @@
     }
   },
   "contact": {
-    "title": "Liên hệ với chúng tôi",
+    "title": "Liên hệ với chúng tôi NeuXTrek",
     "subtitle": "Sẵn sàng chuyển đổi doanh nghiệp của bạn với tự động hóa AI? Liên hệ với đội ngũ của chúng tôi.",
     "name": "Họ tên",
     "email": "Email",

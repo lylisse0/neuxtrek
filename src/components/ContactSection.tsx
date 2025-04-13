@@ -119,7 +119,7 @@ const ContactSection = () => {
       
       <div className="neuxtrek-container">
         <div className="text-center mb-16">
-          <h2 className="neuxtrek-heading mb-4">{t('contact.title')} <span className="gold-text">AI</span></h2>
+          <h2 className="neuxtrek-heading mb-4">Contact Us <span className="gold-text">NeuXTrek</span></h2>
           <p className="neuxtrek-subheading max-w-3xl mx-auto">
             {t('contact.subtitle')}
           </p>
