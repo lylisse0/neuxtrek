@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import { Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { useTranslation } from 'react-i18next';
 
-// Define an interface for the form data
 interface ContactFormData {
   name: string;
   email: string;
@@ -13,7 +11,6 @@ interface ContactFormData {
   message: string;
 }
 
-// Define our notification component
 const NotificationOverlay = ({ message, onClose }: { message: string; onClose: () => void }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm">
@@ -70,7 +67,6 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill in all required fields");
       return;
@@ -84,7 +80,6 @@ const ContactSection = () => {
     setIsLoading(true);
 
     try {
-      // Send data to the webhook
       const response = await fetch(
         "https://yeti-amusing-bedbug.ngrok-free.app/webhook/6dec0b26-36ce-4741-a6ce-2fbff783b104",
         {
@@ -97,10 +92,7 @@ const ContactSection = () => {
       );
 
       if (response.ok) {
-        // Show success notification
         setShowNotification(true);
-        
-        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -122,13 +114,12 @@ const ContactSection = () => {
     <section id="contact" className="neuxtrek-section relative bg-gradient-to-b from-black to-[#050505] overflow-hidden">
       <div className="neural-lines opacity-5"></div>
       
-      {/* Background elements */}
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-neuxtrek-gold/5 blur-[100px]"></div>
       <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-neuxtrek-silver/5 blur-[100px]"></div>
       
       <div className="neuxtrek-container">
         <div className="text-center mb-16">
-          <h2 className="neuxtrek-heading mb-4">{t('contact.title')} <span className="gold-text">{t('contact.title')}</span></h2>
+          <h2 className="neuxtrek-heading mb-4">{t('contact.title')} <span className="gold-text">AI</span></h2>
           <p className="neuxtrek-subheading max-w-3xl mx-auto">
             {t('contact.subtitle')}
           </p>
@@ -227,7 +218,6 @@ const ContactSection = () => {
         </div>
       </div>
       
-      {/* Success Notification */}
       {showNotification && (
         <NotificationOverlay
           message={t('contact.success')}
