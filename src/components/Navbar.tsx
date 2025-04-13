@@ -55,8 +55,6 @@ const Navbar = () => {
     { label: t('navbar.about'), href: 'about', isPage: false },
     { label: t('navbar.caseStudies'), href: 'case-studies', isPage: false },
     { label: t('navbar.courses'), href: '/courses', isPage: true },
-    { label: t('navbar.classroom'), href: '/classroom', isPage: true },
-    { label: t('navbar.community'), href: '/community', isPage: true },
     { label: t('navbar.contact'), href: 'contact', isPage: false },
   ];
 
