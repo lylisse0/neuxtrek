@@ -1,10 +1,19 @@
 
 import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
-import { Heart, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Heart, MessageSquare, ChevronLeft, ChevronRight, Users, GraduationCap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 // Mock data for posts
 const communityPosts = [
@@ -92,23 +101,46 @@ const MainContent = () => {
 
   return (
     <div className="w-full lg:w-2/4">
-      <Tabs defaultValue={activeTab} value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="w-full bg-[#222222] mb-6">
-          <TabsTrigger 
-            value="community" 
-            className="flex-1 data-[state=active]:bg-neuxtrek-gold/20 data-[state=active]:text-neuxtrek-gold"
-          >
-            Community
-          </TabsTrigger>
-          <TabsTrigger 
-            value="classroom" 
-            className="flex-1 data-[state=active]:bg-neuxtrek-gold/20 data-[state=active]:text-neuxtrek-gold"
-          >
-            Classroom
-          </TabsTrigger>
-        </TabsList>
+      <NavigationMenu className="w-full mb-6">
+        <NavigationMenuList className="w-full flex justify-between border-b border-neuxtrek-silver/20">
+          <NavigationMenuItem className="flex-1">
+            <NavigationMenuLink
+              href="/community"
+              className={cn(
+                "flex items-center justify-center gap-2 px-6 py-3 text-neuxtrek-silver hover:text-neuxtrek-gold transition-all border-b-2 border-transparent",
+                activeTab === 'community' && "border-neuxtrek-gold text-neuxtrek-gold"
+              )}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveTab('community');
+              }}
+            >
+              <Users size={18} />
+              <span>Community</span>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
 
-        <TabsContent value="community" className="space-y-6 mt-0">
+          <NavigationMenuItem className="flex-1">
+            <NavigationMenuLink
+              href="/classroom"
+              className={cn(
+                "flex items-center justify-center gap-2 px-6 py-3 text-neuxtrek-silver hover:text-neuxtrek-gold transition-all border-b-2 border-transparent",
+                activeTab === 'classroom' && "border-neuxtrek-gold text-neuxtrek-gold"
+              )}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveTab('classroom');
+              }}
+            >
+              <GraduationCap size={18} />
+              <span>Classroom</span>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      {activeTab === 'community' && (
+        <div className="space-y-6 mt-0">
           {communityPosts.map(post => (
             <Card key={post.id} className="bg-[#333333] border-neuxtrek-silver/20 hover:border-neuxtrek-gold/30 transition-all">
               <CardHeader className="pb-3">
@@ -147,9 +179,11 @@ const MainContent = () => {
               </CardFooter>
             </Card>
           ))}
-        </TabsContent>
+        </div>
+      )}
 
-        <TabsContent value="classroom" className="mt-0">
+      {activeTab === 'classroom' && (
+        <div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {currentCourses.map(course => (
               <Card key={course.id} className="bg-gradient-to-b from-[#333333] to-[#222222] border-neuxtrek-silver/20 hover:border-neuxtrek-gold/30 transition-all overflow-hidden">
@@ -232,8 +266,8 @@ const MainContent = () => {
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
-        </TabsContent>
-      </Tabs>
+        </div>
+      )}
     </div>
   );
 };
