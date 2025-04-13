@@ -6,7 +6,6 @@ import Logo from './Logo';
 import { cn } from '@/lib/utils';
 import { Link, useLocation } from 'react-router-dom';
 import LanguageSelector from './LanguageSelector';
-import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,7 +65,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out px-4 py-4",
         isScrolled 
-          ? "bg-background/80 backdrop-blur-md border-b border-border py-2" 
+          ? "bg-black/80 backdrop-blur-md border-b border-neuxtrek-silver/10 py-2" 
           : "bg-transparent py-4"
       )}
     >
@@ -76,13 +75,13 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             link.isPage ? (
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-foreground hover:text-neuxtrek-gold transition duration-300"
+                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
               >
                 {link.label}
               </Link>
@@ -94,39 +93,32 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-foreground hover:text-neuxtrek-gold transition duration-300"
+                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
               >
                 {link.label}
               </Link>
             )
           ))}
-          
-          <div className="flex items-center space-x-4">
-            <ThemeToggle />
-            <LanguageSelector />
-            <Link to="/login" className="neuxtrek-btn-primary">
-              {t('navbar.getStarted')}
-            </Link>
-          </div>
+          <LanguageSelector />
+          <Link to="/login" className="neuxtrek-btn-primary">
+            {t('navbar.getStarted')}
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-2">
-          <ThemeToggle />
-          <button
-            className="text-foreground hover:text-neuxtrek-gold"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button
+          className="md:hidden text-neuxtrek-silver hover:text-neuxtrek-gold"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 z-40 transform transition-transform duration-300 ease-in-out pt-20",
+          "fixed inset-0 bg-black/95 z-40 transform transition-transform duration-300 ease-in-out pt-20",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -137,7 +129,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="text-xl text-foreground hover:text-neuxtrek-gold transition duration-300"
+                  className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -151,7 +143,7 @@ const Navbar = () => {
                     scrollToSection(link.href);
                     setIsOpen(false);
                   }}
-                  className="text-left text-xl text-foreground hover:text-neuxtrek-gold transition duration-300"
+                  className="text-left text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
                 >
                   {link.label}
                 </Link>

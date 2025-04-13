@@ -7,89 +7,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5% 64.9%;
-    
-    --radius: 0.5rem;
+    --background: 0 0% 0%;
+    --foreground: 220 14% 96%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 10% 3.9%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 240 5.9% 90%;
-    --sidebar-ring: 240 5% 64.9%;
+    --card: 0 0% 3%;
+    --card-foreground: 220 14% 96%;
 
-    /* Transition for smooth theme switching */
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+    --popover: 0 0% 3%;
+    --popover-foreground: 220 14% 96%;
 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    
-    --muted: 240 3.7% 15.9%;
+    --primary: 220 17% 63%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 43 74% 49%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 15%;
     --muted-foreground: 240 5% 64.9%;
-    
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    
+
+    --accent: 43 74% 49%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --ring: 43 74% 49%;
 
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 240 4.9% 83.9%;
-
-    /* Transition for smooth theme switching */
-    transition: background-color 0.3s ease, color 0.3s ease;
+    --radius: 0.5rem;
   }
 }
 
@@ -99,7 +45,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans transition-colors duration-300;
+    @apply bg-neuxtrek-black text-neuxtrek-silver font-sans;
   }
 }
 
@@ -113,15 +59,15 @@
   }
   
   .neuxtrek-heading {
-    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-foreground;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-neuxtrek-silver;
   }
   
   .neuxtrek-subheading {
-    @apply text-xl sm:text-2xl font-medium text-foreground/80;
+    @apply text-xl sm:text-2xl font-medium text-neuxtrek-silver/80;
   }
   
   .neuxtrek-paragraph {
-    @apply text-base sm:text-lg text-foreground/70;
+    @apply text-base sm:text-lg text-neuxtrek-silver/70;
   }
   
   .neuxtrek-btn {
@@ -135,13 +81,13 @@
   }
   
   .neuxtrek-btn-secondary {
-    @apply neuxtrek-btn border border-foreground/30 hover:border-neuxtrek-gold 
+    @apply neuxtrek-btn border border-neuxtrek-silver/30 hover:border-neuxtrek-gold 
            hover:text-neuxtrek-gold;
   }
   
   .neuxtrek-card {
-    @apply rounded-xl bg-gradient-to-b from-foreground/10 to-transparent p-6 
-           backdrop-blur-sm border border-foreground/20 
+    @apply rounded-xl bg-gradient-to-b from-neuxtrek-silver/10 to-transparent p-6 
+           backdrop-blur-sm border border-neuxtrek-silver/20 
            hover:border-neuxtrek-gold/30 transition-all duration-300;
   }
   
@@ -150,7 +96,7 @@
   }
   
   .glow-effect::before {
-    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-neuxtrek-gold/50 to-foreground/30 
+    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-neuxtrek-gold/50 to-neuxtrek-silver/30 
            rounded-lg blur-md opacity-0 transition duration-300;
   }
   
@@ -159,7 +105,7 @@
   }
   
   .glow-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-foreground via-white to-foreground;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-neuxtrek-silver via-white to-neuxtrek-silver;
   }
   
   .gold-text {

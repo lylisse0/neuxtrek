@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Courses from "./pages/Courses";
@@ -21,7 +20,7 @@ import Classroom from "./pages/Classroom";
 const Loading = () => {
   const { t } = useTranslation();
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="min-h-screen bg-neuxtrek-black flex items-center justify-center">
       <div className="text-neuxtrek-gold text-2xl animate-pulse">
         {t('common.loading')}
       </div>
@@ -43,28 +42,26 @@ const App = () => {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="system" storageKey="neuxtrek-theme">
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Suspense fallback={<Loading />}>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/courses" element={<Courses />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/setup-profile" element={<SetupProfile />} />
-                <Route path="/new-project" element={<NewProject />} />
-                <Route path="/community" element={<Community />} />
-                <Route path="/classroom" element={<Classroom />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </Suspense>
-        </TooltipProvider>
-      </ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Suspense fallback={<Loading />}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/setup-profile" element={<SetupProfile />} />
+              <Route path="/new-project" element={<NewProject />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/classroom" element={<Classroom />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </Suspense>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };
