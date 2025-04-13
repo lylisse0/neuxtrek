@@ -79,7 +79,7 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-neuxtrek-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.label}
               </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+                className="text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-neuxtrek-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.label}
               </Link>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+                  className="text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300 relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-neuxtrek-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -141,7 +141,7 @@ const Navbar = () => {
                     scrollToSection(link.href);
                     setIsOpen(false);
                   }}
-                  className="text-left text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300"
+                  className="text-left text-xl text-neuxtrek-silver hover:text-neuxtrek-gold transition duration-300 relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-neuxtrek-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                 >
                   {link.label}
                 </Link>
